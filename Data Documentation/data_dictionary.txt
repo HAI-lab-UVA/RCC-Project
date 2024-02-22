@@ -1,0 +1,661 @@
+Database ID
+
+"Patient ID: Each patient should be assigned a unique ID number
+MUST consist of the 2 assigned institution letters, followed by 4 numbers, starting with 0001
+
+Emory patient #1 = EU0001
+Emory patient #150 = EU0150
+
+** ONLY ONE ID number should be used PER PATIENT"
+Patient MRN
+Last Name
+First Name
+Patient SSN: Patient's social security number, without dashes. If full SSN not available, use last 4 numbers
+Gender
+Date of Birth
+Age
+Race
+Height (cm): Patient's height in CENTIMETERS
+Weight (kg): Patient's weight in KILOGRAMS
+BMI
+Zip Code: Patient's primary residential zip code
+Health Insurance
+ASA Class
+Functional Status
+Family history of CRC
+Date of Diagnosis
+Primary v. Recurrence: Identify this case as a PRIMARY rectal cancer or as a RECURRENT rectal cancer
+"Hypertension: Hypertension requiring medication
+
+WITHIN 30 DAYS PRIOR TO SURGERY"
+"Diabetes: Diabetes requiring medication
+
+(Excludes diet-controlled)"
+"Prior Cardiac Event: Any of the following:
+
+- Angina within 1 month 
+- Myocardial infarction within 6 months
+- Coronary intervention at any time
+- Any major cardiac surgery (excluding pacemaker and AICD)"
+"CHF: Newly diagnosed CHF or acute exacerbation of CHF
+
+WITHIN 30 DAYS PRIOR TO SURGERY"
+"Dyspnea: Baseline dyspnea status
+
+WITHIN 30 DAYS PRIOR TO SURGERY"
+Alcohol Abuse: Current or previous self-reported use of more than four drinks per day 
+"Smoking History: Patient has smoked cigarettes WITHIN 1 YEAR PRIOR TO SURGERY
+
+(Excludes cigars, pipes, marijuana, chewing tobacco)"
+"Severe COPD: COPD resulting in one of the following:
+
+- Functional disability
+- Prior hospitalization for COPD
+- Chronic bronchodilator therapy
+- FEV1 <75%
+
+(Excludes asthma, interstitial fibrosis, sarcoidosis)"
+"Ventilator Dependent: Ventilator-assisted respiration within 48 hours prior to surgery. 
+
+EXCLUDES USE OF CPAP FOR TREATMENT OF SLEEP APNEA."
+"Acute Renal Failure : Any of the following: 
+- Increase in SCr > 0.3 mg/dL within 48 hours
+- Increase in SCr to > 1.5 times baseline
+- Urine volume < 0.5 ml/kg/hr for 6 consecutive hours 
+
+WITHIN 30 DAYS PRIOR TO SURGERY "
+Chronic Renal Failure: GFR < 60 mL/min/1.73 m² for ≥ 3 months
+"Dialysis: Acute or chronic renal failure requiring peritoneal dialysis, hemodialysis, hemofiltration, or ultrafiltration 
+
+WITHIN 2 WEEKS PRIOR TO SURGERY"
+Chronic Liver Disease: Chronic liver disease diagnosed WITHIN 30 DAYS PRIOR TO SURGERY
+"Chronic Steroids: Steroids (daily or long-interval dosing) taken for chronic condition WITHIN 30 DAYS OF SURGERY or within 30 days of initial evaluation for surgery.
+
+(Excludes isolated pulse-dose, limited short course, or taper of less than 10 days)"
+Previous Diagnosis of Cancer
+Previous Diagnosis of Prostate Cancer
+Previous Diagnosis of GYN Cancer
+"Disseminated Cancer: Metastatic cancer of any kind (including ALL, AML, and stage IV Lymphoma) AND either:
+
+- Active treatment WITHIN ONE YEAR PRIOR TO SURGERY
+- No treatment (patient refusal or deemed ""untreatable"")
+
+(Excludes CLL, CML, Multiple Myeloma)"
+"Prior PELVIC  Radiation: History of any prior PELVIC radiation or brachytherapy
+
+EXCLUDES radiation given for current tumor
+
+**If YES, see next column"
+Time from Prior Radiation: Estimate time (years) from prior radiation to presentation of CURRENT tumor, if applicable
+Known Genetic Syndrome
+Ulcerative Colitis: Time from IBD diagnosis to cancer diagnosis, if applicable
+Crohn's Disease: Time from IBD diagnosis to cancer diagnosis, if applicable
+Irritable Bowel Syndrome: Diagnosis at any time prior to surgery
+Sexual Dysfunction: Pre-treatment sexual dysfunction (including erectile dysfunction, retrograde ejaculation or vaginal dryness) diagnosed at any time prior to surgery
+Bladder Dysfunction: Pre-treatment bladder dysfunction (including urinary retention, leakage or incontinence) diagnosed at any time prior to surgery
+"Fecal Incontinence : Pre-treatment fecal incontinence at any time prior to surgery including urge or passive incontinence to: 
+- Gas
+- Mucus
+- Liquid stool
+- Solid stools "
+Prior Abdominal Operations: Any history of prior abdominal operations
+"Pre-Operative Bowel Obstruction: Pre-operative bowel obstruction WITHIN 30 DAYS OF SURGERY
+
+- Partial small bowel obstruction 
+- Complete small bowel obstruction 
+- Large bowel obstruction from rectal tumor by clinical or radiologic signs
+"
+Malignant Fistula: Fistula related to primary rectal cancer diagnosed WITHIN 30 DAYS OF SURGERY
+Rectal Bleeding: Rectal bleeding from primary tumor requiring blood transfusion at any time prior to surgery
+TPN Pre-Operatively: TPN administration WITHIN 30 DAYS OF SURGERY
+Weight Loss: Pre-operative unintentional weight loss of more than 10% of usual body weight over 6 months
+Pre-Operative Rectal Stent: Rectal stent placed at any time pre-operatively
+Date Rectal Stent Place: Date at which rectal stent was placed
+"Reason for Rectal Stent: Reason for rectal stent: 
+- Palliative stent in stage IV disease
+- Bridge to operation "
+Complication After Stenting: Complication after stenting including perforation, obstruction, fistula, required stent replacement or need for diverting ostomy
+Diverting Ostomy Before Surgery: Diverting ostomy required for symptoms related to primary cancer at any time prior to surgery including ileostomy, transverse colostomy or sigmoid colostomy
+Preoperative Platelet Count: Last available pre-operative platelet count
+Preoperative WBC Count: Last available pre-operative WBC count
+Preoperative % Neutrophil: Last available pre-operative % neutrophil value (do NOT include bands)
+Preoperative % Lymphocyte: Last available pre-operative % lymphocyte value
+Preoperative Hemoglobin : Last available pre-operative hemoglobin value
+"Systemic Sepsis: Systemic inflammatory response syndrome (SIRS), sepsis, or septic shock 
+
+WITHIN 48 HOURS PRIOR TO SURGERY"
+Preoperative Albumin: Last available pre-operative Albumin level (g/dL)
+Preoperative Pre-Albumin: Last available pre-operative pre-Albumin level (mg/dL)
+Preoperative BUN: Last available pre-operative BUN level (mg/dL)
+Preoperative Creatinine : Last available pre-operative Creatinine (mg/dL)
+Preoperative CRP: Last available pre-operative CRP (mg/dL)
+Preoperative CEA: Last available pre-operative CEA (ng/mL)
+Preoperative CA 19-9: Last available pre-operative CA 19-9 (U/mL)
+First Oncologic Consultation: Date of the initial consultation by an Oncology specialist (either Medical or Surgical, whichever occured first)
+Pre-Operative CT: CT scan obtained preoperatively of the current tumor
+Pre-Operative EUS: Endorectal ultrasound obtained preoperatively of the current tumor
+Pre-Operative MRI: MRI obtained preoperatively of the current tumor
+Pre-Operative Imaging Diagnosis
+Largest Radiographic Tumor Size (cm)
+Preoperative PET/PET-CT: PET or PET-CT scan obtained preoperatively
+Distant Disease on PET-CT: Distant metastatic disease identified on PET-CT
+Staging CT Chest: CT Chest obtained preoperatively for staging purposes
+Staging CXR: CXR obtained preoperatively for staging purposes
+Metastatic Disease: Metastatic disease at time of presentation of CURRENT tumor in question
+Location of Metastatic Disease: Location of metastatic disease found at presentation of CURRENT tumor
+Method of Biopsy: Method of biopsy for METASTATIC tumor site
+Date of Biopsy: Date of biopsy of METASTATIC tumor site
+Pre-Treatment Staging by MRI: Pre-treatment staging by MRI
+Pre-Treatment N-Stage by MRI: Pre-treatment N-stage by MRI
+Pre-Treatment M-Stage by MRI: Pre-treatment M-stage by MRI
+Pre-Treatment 8th Edition AJCC Staging by MRI 
+Pre-Treatment T-Stage by ERUS: Pre-treatment T-stage by ERUS
+Number of Mesorectal Nodes by MRI
+Number of Mesorectal Nodes by ERUS
+Number of Retroperitoneal Nodes by CT
+Number of Retroperitoneal Nodes by MRI
+Number of Retroperitoneal Nodes by PET-CT
+Number of Pelvic Nodes on CT
+Number of Pelvic Nodes on MRI
+Number of Pelvic Nodes on PET-CT
+"Pre-Treatment Tumor Diameter: Pre-treatment diameter of tumor (cm), as evaluated by any imaging
+
+FREE TEXT"
+"Pre-Treatment Length of Tumor: Pre-treatment length of tumor (cm), as evaluated by any imaging
+
+FREE TEXT"
+"Pre-Treatment Distance from AV: Pre-treatment distance from ANAL VERGE (in cm), as evaluated by any imaging
+
+FREE TEXT"
+Tumor Location: Pre-treatment rectal tumor location in relationship to the anal verge or anorectal junction
+"Distance from Sphincters: Pre-treatment distance from anal sphincters (cm), as evaluated by endorectal ultrasound, MRI cross-sectional imaging OR colonoscopic evaluation
+
+FREE TEXT"
+Peritoneal Reflection: Pre-treatment tumor relationship to peritoneal reflection (above or below), as evaluated by any imaging
+Pelvic Sidewall Involvement: Pre-treatment tumor involvement of pelvic sidewall, as evaluated by imaging (pelvic sidewall includes common, external and internal iliac vessels, ureters, pyriformis, internal obturator muscles and sacral nerve roots)
+CRM: Pre-treatment distance of tumor to circumferential radial margin (in mm), as evaluated by imaging
+Sphincter Involvement: Pre-treatment tumor involvement of internal or external anal sphincters, as evaluated by exam or imaging
+Invasion of Reproductive Organs: Invasion of CURRENT tumor into reproductive organs INCLUDING uterus, adnexa, vagina OR prostate, seminal vesicles
+Invasion of Bladder: Invasion of CURRENT tumor into bladder
+Invasion of Sacrum : Invasion of CURRENT tumor into the proximal sacrum above the S2 vertebral level 
+Invasion of Sacral Nerve Roots: Invasion of CURRENT tumor into sacral nerve roots involvement above the S2 vertebral level
+Ureteral Obstruction : Pre-treatment ureteral obstruction either unilateral or bilateral
+Ureteral Intervention: Intervention required for unilater or bilateral ureteral obstruction including percutaneous nephrostomy tube or stents
+Bilobar Liver Disease: Presence of synchronous metastatic disease in both right and left liver lobe
+# Liver Segments Involved : Number of liver segments involved as evaluated by MRI, CT or PET-CT, if applicable
+Liver First Approach: Resection of liver metastases PRIOR to resection of PRIMARY rectal cancer 
+Neoadjuvant Chemotherapy: Chemotherapy given PRE-OPERATIVELY, EXCLUDING chemotherapy given with radiation 
+"Neoadjuvant Chemo Regimen: Chemotherapy regimen given PRE-OPERATIVELY, if applicable. 
+
+FREE TEXT
+Examples include: CAPOX, CAPOX + Avastin, FOLFOX + Avastin, FOLFOX + Cetuximab or Panitumumab, FOLFIRI, FOLFIRI + Avastin, FOLFIRI + Cetuxibmab or Panitumumab, FOLFOXIRI"
+Date of Initiation: Date PRE-OPERATIVE chemotherapy was initiated
+Date of Completion: Date PRE-OPERATIVE chemotherapy was completed
+Duration of Neoadjuvant Chemo: Total duration (in months) of chemotherapy given PRE-OPERATIVELY
+Chemo Treatment Completed: PRE-OPERATIVE chemotherapy treatment completed, if applicable
+Neoadjuvant Chemoradiation: Chemoradiation or radiation ALONE given PRE-OPERATIVELY
+"Radiation Approach: Approach to PRE-OPERATIVE chemoradiation:
+- Short-course radiation: 25 Gy of radiation in five fractions
+- Long-course radiation: 50.4 Gy of radiation in 28 fractions "
+"Radiation Technique: Technique of PRE-OPERATIVE radiotherapy
+
+IMRT = Intensity modulated radiation therapy"
+Radiation Dose: Dose of radiation delivered to the tumor PRE-OPERATIVELY
+Date of Initiation : Date PRE-OPERATIVE chemoradiation was initiated
+Date of Completion: Date PRE-OPERATIVE chemoradiation was completed
+Duration of Neoadjuvant ChemoXRT: Total duration (in months) of chemoradiation given PRE-OPERATIVELY
+Completed ChemoXRT Course: PRE-OPERATIVE chemoradiation treatment completed, if applicable
+Total Neoadjuvant Therapy (TNT): Total neoadjuvant therapy used: neoadjuvant chemotherapy → chemoXRT → surgical resection 
+"Complication During Treatment: Complication with neo-adjuvant treatment INCLUDING proctitis, colitis, fistula, abscess, sepsis, enteritis, pancytopenia, bleeding requiring transfusion, bowel obstruction, bowel perforation
+
+FREE TEXT"
+Total Neoadjuvant Therapy (TNT): Total neoadjuvant therapy used: neoadjuvant chemotherapy → chemoXRT → surgical resection 
+Hospitalization Required: Hospitalization required for complication 
+"Clinical Response : cCR: absence of clinical, endoscopic or imaging evidence of a rectal tumor
+
+pCR: partial response in rectal tumor on clinical, endoscopic or imaging evaluation
+
+cNon: no response in rectal tumor on clinical, endoscopic or imaging evaluation"
+Post-Treatment T-Stage by MRI: Post-treatment T-stage by MRI
+Post-Treatment N-Stage by MRI: Post-treatment N-stage by MRI
+Post-Treatment M-Stage by MRI: Post-treatment M-stage by MRI
+Post-Treatment AJCC 8th Edition Staging by MRI
+Post-Treatment T-Stage by ERUS: Post-treatment T-stage by ERUS 
+Number of Mesorectal Nodes by MRI
+Number of Mesorectal Nodes by ERUS
+Number of Retroperitoneal Nodes by CT
+Number of Retroperitoneal Nodes by MRI
+Number of Retroperitoneal Nodes by PET-CT
+Number of Pelvic Nodes on CT
+Number of Pelvic Nodes on MRI
+Number of Pelvic Nodes on PET-CT
+"Post-Treatment Tumor Diameter: Post-treatment diameter of tumor (cm), as evaluated by any imaging
+
+FREE TEXT"
+"Post-Treatment Length of Tumor: Post-treatment length of tumor (cm), as evaluated by any imaging
+
+FREE TEXT"
+Involvement of Pelvic Sidewall: Post-treatment tumor involvement of pelvic sidewall, as evaluated by imaging (pelvic sidewall includes common, external and internal iliac vessels, ureters, pyriformis, internal obturator muscles and sacral nerve roots).
+CRM: Post-treatment distance of tumor to circumferential radial margin (in mm), as evaluated by imaging
+Sphincter Involvement: Post-treatment tumor involvement of internal or external anal sphincters, as evaluated by exam or imaging
+Invasion of Reproductive Organs: Post-treatment invasion of CURRENT tumor into reproductive organs INCLUDING uterus, adnexa, vagina OR prostate, seminal vesicles
+Invasion of Bladder: Post-treatment invasion of CURRENT tumor into bladder
+Invasion of Sacrum : Post-treatment invasion of CURRENT tumor into the proximal sacrum above the S2 vertebral level 
+Invasion of Sacral Nerve Roots: Post-treatment invasion of CURRENT tumor into sacral nerve roots involvement above the S2 vertebral level
+# Liver Segments Involved : Post-treatment number of liver segments involved as evaluated by imaging, if applicable
+"# Lung Lesions on CT: Post-treatment number of lung lesions as evaluated by imaging, if applicable
+
+FREE TEXT"
+Watch and Wait Protocol : Indicate if CURRENT tumor was treated operatively or non-operatively
+Date of Surgery
+Emergency Surgery: Surgery listed as "Emergent"
+"Wound Class: 
+Class I - Clean 
+(uninfected, GI/GU tract not entered)
+Class II - Clean-Contaminated 
+(no unusual contamination, GI/GU tract entered)
+Class III - Contaminated 
+(inflammation, gross spillage)
+Class IV - Dirty 
+(infection or perforation pre-op)"
+Re-Resection: Re-resection of a primary tumor and/or tumor bed that had previously been excised in a NON-ONCOLOGIC fashion
+Palliative vs Curative Intent: 
+"Indication for Resection: ** PALLIATIVE RESECTION ONLY **
+
+Primary indication for resection with palliative intent"
+"CURRENT Tumor Category: Primary = initial tumor
+
+Synchronous Liver Metastases = Liver metastasis presenting concurrently with rectal tumor
+
+Recurrent = tumor presenting after preceding tumor of same histologic type that was treated"
+"Type of Operation of Rectal Tumo: Local transanal = TEM or TAMIS 
+
+LAR = low anterior resection 
+
+APR = abdominoperineal resection 
+
+Completion proctectomy = for recurrences ONLY
+"
+Operative Approach: Operative approach for non-local excision
+Reason for Conversion to Open: Reason for conversion to open, if applicable
+Distance from Anal Verge: Distance from anal verge, according to operative report
+"Distance from Sphincters: Distance (in cm) from sphincters, according to operative report
+
+FREE TEXT"
+Peritoneal Reflection: Tumor relationship to peritoneal reflection, according to operative report
+Pelvic Sidewall: Tumor involvement of the pelvic sidewall, according to operative report (pelvic sidewall includes common, external and internal iliac vessels, ureters, pyriformis, internal obturator muscles and sacral nerve roots).
+Ureteral Stents: Use of ureteral stents, according to operative report
+Intraoperative Radiation: Radiation delivered intraoperatively to primary rectal cancer
+Mobilization of Splenic Flexure: Method of mobilization of splenic flexure, according to operative report
+Location of Vessel Ligation: Location of vessel ligation, according to operative report
+Method of IMA Transection: Method of IMA transection, according to operative report
+Method of Rectal Transection: Method of rectal transection, according to operative report
+Number of Staple Fires: **ONLY IF STAPLER USED TO TRANSECT RECTUM**
+Specimen Extraction Site: Specimen extraction site, according to operative report
+Method of Anastomosis: Method of anastomosis, according to operative report
+Leak Test Result: Result of leak test, according to operative report
+Sphincter Preservation : Sphincter preservation, according to operative report
+"Anastomosis Distance: Anastomosis distance from sphincters (in cm), according to operative report
+
+FREE TEXT"
+"Anastomosis Distance : Anastomosis distance from anal verge (in cm), according to operative report
+
+FREE TEXT"
+Anal Canal: Involvement of anal canal, according to operative report
+Diverting Loop Ileostomy: Use of diverting loop ileostomy, according to operative report
+Additional Pelvic Nodes Resected
+Frozen Section Margin: Intraoperative frozen section margin sent, according to operative report
+Frozen Section Margin Positive: Positive margin on intraoperative frozen section, if applicable
+Distal Margin Re-Resection: Re-resection performed for positive DISTAL margin on intraoperative frozen section, if applicable
+"Operative Time: Operative time (in minutes)
+
+FREE TEXT"
+Intraop Drain Placement: Intraoperative drain placement
+Type of Drainage System: Type of drainage system used, if applicable
+Number of Drains: Total number of drains placed intraoperatively, if applicable
+Type of Robot: Type of robot used, if applicable
+Local Excision Approach: Method of local excision including transanal excision (TAE), transanal endoscopic microsurgery (TEM) or transanal minimally invasive surgery (TAMIS), if applicable
+Portion of Sphincters Resected: Need for partial/subtotal resection of external or internal anal sphincters, according to operative report
+Defect Closure: Closure of rectal wall defect, according to operative report
+Peritoneal Perforation: Entry into the peritoneal cavity, according to operative report
+Intervention for Perforation: Intervention for peritoneal perforation, if applicable
+Positive Margin : Positive margin on final pathology requiring local re-excision, according to operative report
+Need for Radical Resection: Radical resection performed on a different date due to high-risk pathology features
+Type of Anastomosis: Type of distal anastomosis, according to operative report
+Intersphincteric Dissection: Need for intersphincteric resection, according to operative report
+Colonic J-Pouch: Colonic J-pouch reservoir performed, according to operative report
+Coloplasty: Transverse coloplasty reservoir performed, according to operative report
+Omental Flap to Pelvis: Omental flap used during low-anterior resection ONLY
+Gracilis Flap to Pelvis : Pelvic reconstruction with gracilis myocutaneous, according to operative report 
+TRAM Flap: Pelvic reconstruction with transverse rectus abdominus flap, according to operative report
+Omental Flap to Pelvis: Pelvic reconstruction with pedicled omental flap, according to operative report for APR ONLY 
+Small Bowel
+# Small Bowel Resections
+Adnexa
+Uterus
+Vagina
+Bladder
+Ureter
+Seminal Vesicles
+Prostate
+Sacrum
+Pelvic Exenteration
+# Liver Lesions: Total number of discrete liver lesions
+"Lesion Distribution : Distribution of liver lesions
+
+Left Lobe - Segments I, II, III, IVa, IVb
+Right Lobe - Segments V, VI, VII, VIII "
+Lesions Resected: Total number of liver lesions resected
+Wedge Resection: Total number of wedge resections, according to operative report
+"Type of Liver Resection: Minor hepatectomy - <3 Couinaud Segments
+
+Major hepatectomy - 3 or more Couinaud Segments"
+Ablation: Ablation performed peri- or intra-operatively for any number of liver lesions
+"Intraoperative Complication: Any intraoperative complication, according to operative report. 
+
+INCLUDING: 
+1. Bladder injury
+2. Ureteral injury
+3. Urethral injury
+4. Bowel injury 
+5. Anastomotic leak requiring revision 
+6. Pulmonary embolus
+7. Myocardial infarction
+8. Stroke"
+"Intraoperative Complication: Type of intraoperative complication
+* FREE TEXT *
+Include: bladder injury, ureteral or urethral injury, bowel injury, anastomotic leak requiring revision, pulmonary embolus, myocardial infarction, stroke, significant bleeding from major vascular structure"
+EBL: Estimated blood loss (in ml), according to anesthesia records
+INTRAOP pRBC Transfusion: Blood transfused intraoperatively, according to anesthesia records
+"# INTRAOP pRBC Units: Number of pRBC units transfused intraoperatively, according to anesthesia records, if applicable
+
+(1 Unit pRBCs = ~300mL)"
+POSTOP pRBC Transfusion: Blood transfused at any point postoperatively
+"# POSTOP pRBC Units: Number of pRBC units transfused postoperatively, if applicable
+
+(1 Unit pRBCs = ~300mL)"
+INTRAOP Crystalloid (ml): Total intraoperative crystalloid (in ml), according to anesthesia records
+INTRAOP Albumin (ml): Total intraoperative albumin (in ml), according to anesthesia records
+INTRAOP Urine Output (ml): Total intraoperative urine output (in ml), according to anesthesia records
+Tumor Size: Largest tumor diameter (in cm), according to final pathology report
+Histopathologic Type: Histopathology type, according to final pathology report
+Final T-Stage: T-stage on final pathology report
+Final N-Stage: N-stage on final pathology report
+AJCC Eighth Edition Stage 
+TNM Grade: TNM grade, according to final pathology report
+"Tumor Differentiation : Grade of tumor differentiation, according to final pathology report 
+(choose worst histologric grade - i.e., if poorly-to-moderately differentiated choose poorly differentiated)"
+Depth of Invasion: Depth of invasion, according to pathology report
+"# Lymph Nodes
+Retrieved"
+# Lymph Node Positive
+Lymphovascular Invasion (LVI): LVI present, according to final pathology report
+Perineural Invasion : PNI present, according to final pathology report
+Proximal Margin Distance (cm): Proximal margin distance (in cm), according to final pathology report
+Distal Margin Distance (cm): Distal margin distance (in cm), according to final pathology report
+Radial Margin Distance (mm)
+Final Proximal Margin Status: Final proximal margin status, according to pathology report
+Final Distal Margin Status : Final distal margin status, according to pathology report
+Final Radial Margin Status: Final radial margin status, according to pathology report
+"Final Resection Status: Final resection status of PRIMARY RECTAL TUMOR ONLY
+
+R0 - Complete gross tumor clearance, negative microscopic margins
+R1 - Complete gross tumor clearance, positive microscopic margins
+R2 - Incomplete gross tumor clearance"
+Final Liver Resection Status: Final resection status of LIVER RESECTION ONLY, regardless of resection status of other concurrent tumors resected, according to operative note and final pathology report
+Tumor Budding: Presence of tumor budding, according to pathology report
+Necrosis: Necrosis present, according to final pathology report
+Necrosis %: Percent necrosis, if present, according to final pathology report
+"Treatment Effect (%): Percent treatment effect, according to final pathology report
+
+FREE TEXT
+
+
+"
+"Pathologic Response: Pathologic response, according to final pathology report 
+
+No response - no regression
+Complete response (pCR) - no viable tumor cells on final pathology in tumor
+Partial response - stromal fibrosis outgrowing tumor
+
+"
+Mucinous
+Sphincter Involvement: Involvement of internal or external sphincters, according to final pathology report
+"Other Organ Involvement: Adherent/Abutting = tumor extends up to but does NOT invade organ
+
+Invading/Infiltrating = tumor extends into organ tissue/parenchyma"
+"Organs Invaded: List organs invaded/infiltrated, according to final pathology report, if applicable. 
+
+**EXCLUDES organs only adherent to or abutting tumor
+
+FREE TEXT"
+Completeness of TME: Completeness of TME, according to pathology report
+"Specimen Integrity: Intact: single specimen
+Fragmented: piecemeal excision of lesion "
+Specimen Pinned: Specimen pinned for adequate orientation after LOCAL EXCISION
+Additional Pathologic Findings
+MSI Results: Results of microsatellite instability testing, according to pathology report
+KRAS Status: Results of KRAS status testing, according to pathology report
+BRAF Status: Results of BRAF status, according to pathology report
+APC Status: Results of APC status, according to pathology report
+P53 Status: Results of P53 status, according to pathology report
+MLH1 Status: Results of MLH1 status, according to pathology report
+MSH2 Status: Results of MSH2 status, according to pathology report
+MSH6 Status: Results of MSH6 status, according to pathology report
+PMS2 Status: Results of PMS2 status, according to pathology results
+T-Stage: T-stage of PRIMARY RECTAL TUMOR at initial resection
+N-Stage: N-stage of PRIMARY RECTAL TUMOR at initial resection
+M-Stage: M-stage of PRIMARY RECTAL TUMOR at initial resection
+Type of Operation: Type of operation for primary rectal tumor during INTIAL resection
+Approach for TME: Approach for total mesorectal excision during INITAL operation
+Distal Margin Distance (cm): Distal margin distance (in cm), according to final pathology report after INITIAL operation
+Radial Margin Distance (mm): Radial margin distance (in mm), according to final pathology report after INITIAL operation
+ERAS Protocol: ERAS protocol used
+Return of Bowel Function: Number of days until return of bowel function (either flatus or bowel movement)
+"Any Complication: Any deviation from normal post-operative course, not inherent in the procedure
+
+WITHIN 90 DAYS of surgery"
+"Total # of Complications: Any deviation from normal post-operative course, not inherent in the procedure
+
+FREE TEXT"
+"Highest Clavien-Dindo Grade: Clavien-Dindo Classification:
+
+I = No intervention (opening wound bedside OK)
+II = Medication only (TPN, blood)
+IIIa = Procedure (no gen anes)
+IIIb = Procedure (gen anes)
+IVa = ICU, single-organ dysfunction
+IVb = ICU, multi-organ dysfunction
+V = Death"
+Minor vs Major Complication
+Superficial Site Infection: Superficial wound infection (cellulitis), not requiring drainage or wound re-opening
+Deep Surgical Site Infection: Deep wound infection with purulent drainage from either spontaneous dehiscence or intentional opening of the wound
+Intraabdominal Infection/Abscess: Intraabdomninal infection, phlegmon, or abscess, with or without need for drainage or re-operation
+Post-op Drainage Procedure: Drainage of a fluid collection at any point in the post-operative period
+Post-Op Bleeding: Clinically significant bleeding at any point in the post-operative period that requires intervention (eg embolization, coiling, reoperation)
+Cerebrovascular Accident: Cerebrovascular accident within 30 post-operative days
+Myocardial Infarction: Myocardial infarction within 30 post-operative days
+Pneumonia: Pneumonia within 30 post-operative days
+Deep Venous Thrombosis 
+Pulmonary Embolus: Pulmonary embolus within 30 post-operative days
+Respiratory Failure: Respiratory failure requiring re-intubation at any time in the post-operative period
+Tracheostomy: Prolonged respiratory failure requiring tracheostomy at any time in the postoperative period
+Parenteral Nutrition: Need for parenteral nutrition (central parenteral nutrition or peripheral parenteral nutrition) at any time in the postoperative period
+Anastomotic Leak: Anastomotic leak at any point in the post-operative period, confirmed either clinically or on imaging
+Date of Diagnosis
+Method of Leak Diagnosis
+Intervention Required: Intervention required for anastomotic leak
+Date of Intervention: Date intervention performed, if applicable
+Type of Intervention: Type of intervention performed, if applicable
+Ostomy Reversed: Ostomy (colostomy or ileostomy) reversed after resolution of leak
+Date of Drain Removal : Date of drain removal, ONLY if placed INTRAOPERATIVELY
+Time to Drain Removal (days)
+"Acute Renal Failure: Acute renal failure at any time in the postoperative period defined by the following criteria: 
+
+- Increase in SCr by ≥ 0.3 mg/dl within 48 hours
+- Increase in SCr to ≥ 1.5 times baseline
+- Urine volume < 0.5 ml/kg/hr for 6 hours "
+Peak Post-Op Creatinine : Highest post-operative creatinine level (mg/dL)
+Temporary Dialysis: Dialysis (CRRT, Ultrafiltrate, Hemodialysis) initiated at any time during the post-operative period, but NOT CONTINUED 90 days after discharge
+Permanent Dialysis: Dialysis (Hemodialysis) initiated at any time during the post-operative period, and CONTINUED >90 days after discharge
+Fecal Incontinence: Recurrent, uncontrolled incontinence to gas, liquid stool or solid stool reported by patient at any time in the post-operative period
+Bladder Dysfunction: Recurrent bladder dysfunction including retention or incontinence reported by patient at any time in the post-operative period
+Sexual Dysfunction: Sexual dysfunction reported by patient at any time in the post-operative period
+Superficial Wound Dehiscence : Superficial perineal wound dehiscence (separation of skin ONLY) of abdominoperineal resection (EXCLUDE wounds that are left open after surgery)
+Deep Dehiscence: Deep perineal wound dehiscence of abdominoperineal resection (EXCLUDE wounds that are left open after surgery)
+Associated Fistula: Associated fistula or chronic draining perineal sinus at any time after abdominoperineal resection
+Perineal Hernia: Protrusion of intra-abdominal viscera through the deep pelvic floor diagnosed at any time after abdominoperineal resection
+Repair of Perineal Hernia: Type of repair for perineal hernia after abdominoperineal resection, if applicable
+Small Bowel Injury: Inadvertent small bowel injury diagnosed postoperatively
+Ureteral Injury: Inadvertent ureteral injury diagnosed at any time postoperatively
+Small Bowel Obstruction : Small bowel obstruction diagnosed at any time postoperatively
+Ileus: Ileus lasting longer than 5 days postoperatively
+Fistula: Fistula diagnosed at any time postoperatively INCLUDING enterocutaneous, rectovaginal, vesicovaginal, vesicoenteric and rectourethral
+Incisional Hernia: Incisional hernia diagnosed at any time postoperatively
+Date of Ileostomy Reversal : Date of ileostomy reversal, ONLY if performed as part of initial operation and NOT for anastomotic leak or other complication
+Time to Ileostomy Reversal (days)
+Reoperation for any Complication: Reoperation for any complication
+Indication for Reoperation: Indication for reoperation, if applicable
+Date of Reoperation : 
+ICU Admission: Complication or comorbidity requiring ICU admission at any time postoperatively
+Date of ICU Admission: Date of ICU admission, if applicable
+Date of ICU Discharge: Date of transfer out of ICU, if applicable
+LOS ICU Admission 
+Date of Discharge: Date of post-operative discharge
+LOS (days)
+"Discharge Destination: Destination after discharge. Please choose BEST option
+
+Acute Rehab - Inpatient rehab, intensive PT/OT, short-term
+
+Subacute Rehab - Inpatient rehab, light PT/OT, longer-term
+
+Skilled Nursing Facility - includes long-term care and nursing home, +/- PT/OT"
+Readmission: Readmission to any hospital in the post-operative period that is directly or indirectly related to surgery
+Date of Readmission: Date of readmission, if applicable
+Time to Readmission: Time from discharge to readmission, if applicable
+Location of Readmission: Hospital location to which patient was readmitted, if applicable
+Diagnosis at Readmission
+Date of Discharge: Date of discharge after readmission, if applicable
+LOS Readmission 
+Adjuvant Chemotherapy: Chemotherapy given POST-OPERATIVELY
+"Adjuvant Chemo Regimen : Chemotherapy regimen given POST-OPERATIVELY, if applicable. 
+
+FREE TEXT
+Examples include: FOLFOX, 5FU-LV, Capecitabine, Capecitabine + Oxaliplatin"
+Adjuvant Chemo Duration : Duration (in weeks) of POST-OPERATIVE chemotherapy, if applicable
+Date of Initiation: Date POST-OPERATIVE chemotherapy was initiated
+Date of Completion: Date POST-OPERATIVE chemotherapy was completed
+Adjuvant Chemo Completed: Completed treatment course of POST-OPERATIVE chemotherapy, if applicable
+Adjuvant Chemoradiation: Chemoradiation given POST-OPERATIVELY
+Adjuvant Chemoradiation Duration: Duration (in weeks) of POST-OPERATIVE chemoradiation, if applicable
+Date of Initiation: Date POST-OPERATIVE chemoradiation was initiated
+Date of Completion: Date POST-OPERATIVE chemoradiation was completed
+Adjuvant ChemoXRT Completed: Completed treatment course of POST-OPERATIVE chemoradiation, if applicable
+Adjuvant Radiotherapy Only: Radiation therapy ONLY given POST-OPERATIVELY
+Grey (Gy): Amount of Grey (Gy) administered during POST-OPERATIVE radiotherapy
+"Radiation Technique: Technique of POST-OPERATIVE radiotherapy
+
+IMRT = Intensity modulated radiation therapy"
+Date of Initiation: Date POST-OPERATIVE radiotherapy was initiated
+Date of Completion: Date POST-OPERATIVE radiotherapy was completed
+Radiotherapy Complications: Complications from radiotherapy, if applicable
+Delay in Adjuvant Treatment: Delay in start of adjuvant treatment
+Reason for Delay: Reason for delay in adjuvant treatment, if applicable
+Date of Last Follow-up/Death: Date of most recent follow-up. If death occured, use date of death
+"Disease Status: Disease status at time of last follow-up or death
+
+NED - No evidence of disease
+AWD - Alive with disease
+DOD - Died of disease
+DOC - Died of other causes
+DUC - Died of unknown causes"
+Death
+Date of Death
+Time to Death
+Overall Survival (OS)
+Sruveillance by CT: CT as primary mode of surveillance for recurrent rectal disease
+Surveillance by MRI: MRI as primary mode of surveillance for recurrent rectal disease
+Surveillance by EUS: EUS as primary mode of surveillance for recurrent rectal disease
+Surveillance by CEA ONLY: CEA as the ONLY mode of surveillance for recurrent rectal disease
+Locoregional Surveillance Frequency
+Distant Surveillance Frequency
+"Recurrence: Disease recurrence AFTER CURRENT tumor
+
+(If current tumor is the 2nd recurrence, but HAS NOT recurred again, put ""NO"" here)"
+CEA Level (ng/mL) at Recurrence
+"Date of Recurrence: Date recurrence was first diagnosed. 
+
+If recurrence identified radiographically, use date of imaging."
+Recurrence Free Survival (months)
+Multifocal Recurrence: Multiple distinct tumors at time of disease recurrence AFTER CURRENT tumor
+"Region of Recurrence: Region of disease recurrence AFTER CURRENT tumor, if applicable
+
+Local - Within resection bed (includes incision)
+Regional - Near resection bed (includes regional LNs)
+Distant - Outside of resection bed
+Locoregional - Local + Regional"
+"Recurrence: Rectal Wall : **LOCOREGIONAL RECURRENCE**
+
+Rectal Wall "
+"Recurrence: Mesorectum : **LOCOREGIONAL RECURRENCE**
+
+Mesorectum"
+"Recurrence: Pelvis: **REGIONAL RECURRENCE**
+ 
+Pelvis"
+"Recurrence: Sacrum: **LOCOREGIONAL RECURRENCE**
+
+Sacrum"
+"Recurrence: Pelvic Sidewall: **LOCOREGIONAL RECURRENCE**
+
+Pelvic Sidewall"
+"Recurrence: Bladder: **LOCOREGIONAL RECURRENCE**
+
+Bladder"
+"Recurrence: Seminal Vesicles : **LOCOREGIONAL RECURRENCE**
+
+Seminal Vesicles "
+"Recurrence: Prostate: **LOCOREGIONAL RECURRENCE**
+
+Prostate"
+"Recurrence: Vagina: **LOCOREGIONAL RECURRENCE**
+
+Vagina"
+"Recurrence: Ureter: **LOCOREGIONAL RECURRENCE**
+
+Ureter"
+"Recurrence Site: Regional LNs: **LOCOREGIONAL RECURRENCE**
+
+Regional lymph nodes"
+"Recurrence Site: Liver: **DISTANT RECURRENCE**
+
+Liver"
+"Recurrence Site: Lung: **DISTANT RECURRENCE**
+
+Lung"
+"Recurrence: Peritoneum: **DISTANT RECURRENCE**
+
+Peritoneum"
+"Recurrence: Ovary: **DISTANT RECURRENCE**
+
+Ovary"
+"Recurrence Site: Bone: **DISTANT RECURRENCE**
+
+Bone"
+"Recurrence Site: Distant LNs: **DISTANT RECURRENCE**
+
+Distant lymph nodes"
+Chemotherapy: **TREATMENT FOR RECURRENCE**
+"Recurrence: Chemo Regimen : Chemotherapy regimen given for RECURRENT disease, if applicable. 
+
+FREE TEXT
+Examples include: FOLFOX, 5FU-LV, Capecitabine, Capecitabine + Oxaliplatin"
+Radiation: **TREATMENT FOR RECURRENCE**
+Grey (Gy): Amount of Grey (Gy) administered during radiotherapy for RECURRENT disease
+Ablation: Ablation therapy for RECURRENT disease, if applicable
+"Surgery: **TREATMENT FOR RECURRENCE**
+
+IF YES, START NEW LINE with complete data pertaining to that particular recurrence.
+
+IF NO, continue to next for subsequent recurrence, if applicable"
+COMMENTS
