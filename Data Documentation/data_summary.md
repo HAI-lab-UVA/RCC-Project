@@ -434,7 +434,7 @@
     1. Date of Completion
     1. Adjuvant Chemo Treatment Completed
 1. Adjuvant Chemoradiation
-1. Adjuvant Chemoradiation Duration 
+    1. Adjuvant Chemoradiation Duration 
     1. Date of Initiation
     1. Date of Completion
     1. Adjuvant Chemoradiation Treatment Completed 
