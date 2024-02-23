@@ -193,7 +193,7 @@
 1. Invasion of Sacral Nerve Roots
 1. \# Liver Segments Involved on Imaging 
 1. \# Lung Lesions on Imaging
-1. Watch and Wait Protocol
+1. Watch and Wait Protocol *Does not neatly fall under this category*
 
 </details>
 
