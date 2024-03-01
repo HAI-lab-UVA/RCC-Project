@@ -41,7 +41,7 @@ Pre-Treatment Sexual Dysfunction,object,30,3
 Pre-Treatment Bladder Dysfunction,object,34,6
 Pre-Treatment Fecal Incontinence,object,60,6
 Prior Abdominal Operations,object,639,5
-Bowel Obstruction,object,20,5
+Bowel Obstruction,object,20,4
 Malignant Fistula,object,24,5
 Rectal Bleeding,object,1493,3
 TPN Pre-Operatively,object,1319,3
@@ -110,7 +110,7 @@ Bilobar Liver Disease,object,1685,3
 # Liver Segments Involved,float64,124,9
 Liver First Approach,object,1236,4
 Neoadjuvant Chemotherapy,object,1874,3
-Neoadjuvant Chemo Regimen,object,452,59
+Neoadjuvant Chemo Regimen,object,452,57
 Date of Initiation,object,436,386
 Date of Completion,object,417,373
 Duration of Neoadjuvant Chemo (months),object,414,9
@@ -124,7 +124,7 @@ Date of Completion_NeoadjChemoRad,object,1144,850
 Duration of Neoadjuvant ChemoXRT (in months),object,1131,9
 Neoadjuvant ChemoXRT Treatment Completed,object,1174,3
 Total Neoadjuvant Therapy (TNT) Protocol,object,1861,3
-Complication During Neoadjuvant Treatment,object,469,122
+Complication During Neoadjuvant Treatment,object,469,121
 Intervention Required_Neoadjvant Complication,object,165,3
 Hospitalization Required,object,163,3
 Clinical Response after Neoadjuvant Treatment,object,774,4
@@ -164,7 +164,7 @@ Type of Operation of Rectal Tumor,object,1790,9
 Operative Approach,object,1742,8
 Reason for Conversion to Open,object,1745,8
 Distance from Anal Verge,float64,900,4
-Distance from Sphincters,object,201,24
+Distance from Sphincters,float64,200,23
 Tumor Relationship to Peritoneal Reflection,object,1174,3
 Involvement of Pelvic Sidewall_Op,object,1360,3
 Ureteral Stents,object,1559,4
@@ -263,7 +263,7 @@ Pathologic Response,object,1202,4
 Mucinous,object,1284,4
 Sphincter Involvement_Histopathology,object,1279,3
 Other Organ Involvement,object,122,3
-Organs Invaded,object,102,51
+Organs Invaded,object,102,50
 Completeness of TME,object,1221,4
 Specimen Integrity,object,1597,3
 Specimen Pinned,object,148,3
@@ -345,11 +345,11 @@ Readmission,object,1604,3
 Date of Readmission,object,420,381
 Time to Readmission,object,403,5
 Location of Readmission,object,370,3
-Diagnosis at Readmission,object,403,148
+Diagnosis at Readmission,object,403,146
 Date of Discharge_Readmission,object,335,315
 LOS Readmission,float64,335,26
 Adjuvant Chemotherapy,object,1762,3
-Adjuvant Chemo Regimen,object,879,141
+Adjuvant Chemo Regimen,object,879,139
 Adjuvant Chemo Duration,object,663,57
 Date of Initiation_AdjChemo,object,718,608
 Date of Completion_AdjChemo,object,671,560
@@ -383,7 +383,7 @@ Recurrence,object,1748,3
 CEA Level (ng/mL) at Recurrence,object,166,107
 Date of Recurrence,object,348,321
 Recurrence Free Survival (months),float64,345,293
-Multifocal Recurrence,object,328,4
+Multifocal Recurrence,object,327,3
 Region of Recurrence,object,352,9
 Rectal Wall,object,214,4
 Mesorectum,object,193,4
@@ -403,9 +403,9 @@ Ovary,object,218,2
 Bone,object,231,4
 Distant LNs,object,225,4
 Chemotherapy,object,314,3
-Chemotherapy Regimen,object,211,111
+Chemotherapy Regimen,object,211,109
 Radiation,float64,268,3
 Grey (Gy)_Recurrence_Rad,float64,46,26
 Ablation_Recurrence,object,169,3
 Surgery,object,282,3
-COMMENTS,object,382,371
+COMMENTS,object,382,370
