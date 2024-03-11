@@ -61,7 +61,7 @@
     1. Date Rectal Stent Placed
     1. Reason for Rectal Stent
     1. Complication after Stenting
-    1. Diverting Ostomy Before Surgery
+1. Diverting Ostomy Before Surgery
 
 </details>
 
@@ -98,8 +98,8 @@
 1. Staging CT Chest
 1. Staging CXR
 1. Metastatic Disease
-1. Location of Metastatic Disease
-1. Method of Metastatic Tumor Biopsy
+    1. Location of Metastatic Disease
+    1. Method of Metastatic Tumor Biopsy
 1. Date of Biopsy
 
 </details>
@@ -134,7 +134,7 @@
 1. Invasion into Sacrum
 1. Invasion of Sacral Nerve Roots
 1. Ureteral Obstruction
-1. Ureteral Obstruction Intervention
+    1. Ureteral Obstruction Intervention
 1. Bilobar Liver Disease
 1. \# Liver Segments Involved
 1. Liver First Approach
@@ -191,7 +191,7 @@
 1. Invasion into Bladder
 1. Invasion into Sacrum
 1. Invasion of Sacral Nerve Roots
-1. \# Liver Segments Involved on Imaging 
+1. \# Liver Segments Involved on Imaging
 1. \# Lung Lesions on Imaging
 1. Watch and Wait Protocol *Does not neatly fall under this category*
 
@@ -208,8 +208,8 @@
 1. Indication for Palliative Resection
 1. CURRENT Tumor Category
 1. Type of Operation of Rectal Tumor
-1. Operative Approach
-    1. Reason for Conversion to Open
+    1. Operative Approach
+        1. Reason for Conversion to Open
 1. Distance from Anal Verge
 1. Distance from Sphincters
 1. Tumor Relationship to Peritoneal Reflection
@@ -227,17 +227,17 @@
 1. Sphincter Preservation
 1. Anastomosis Distance from Sphincters (cm)
 1. Anastomosis Distance from Anal Verge (cm)
-1. Anal Canal 
-1. Diverting Loop Ileostomy 
+1. Anal Canal
+1. Diverting Loop Ileostomy
 1. Additional Pelvic Nodes Resected
-1. Frozen Section Margin 
+1. Frozen Section Margin
     1. Frozen Margin Positive
 1. Distal Margin Re-Resection
 1. Operative Time (minutes)
 1. Intraop Drain Placement
     1. Type of Drainage System
     1. \# of Drains
-1. Type of Robot 
+1. Type of Robot
 1. *IF Type of Operation of Rectal Tumor == Local transanal*
     1. Local Excision Approach
     1. Portion of Sphincters Resected
@@ -254,7 +254,7 @@
     1. Omental Flap to Pelvis
 1. *IF Type of Operation of Rectal Tumor == Abdominoperineal Resection (APR)*
     1. Gracilis Flap to Pelvis
-    1. Transverse Rectus Abdominus Flap 
+    1. Transverse Rectus Abdominus Flap
     1. Omental Flap to Pelvis
 1. *En-Bloc Resections*
     1. Small Bowel
