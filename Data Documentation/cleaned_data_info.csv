@@ -124,8 +124,8 @@ Neoadjuvant Chemo Regimen_Initial_Folfiri,boolean,425,3
 Neoadjuvant Chemo Regimen_Initial_Biologic,boolean,425,3
 Neoadjuvant Chemo Regimen_Initial_5FU,boolean,425,3
 Neoadjuvant Chemo Regimen_Initial_Folfox,boolean,425,3
-Neoadjuvant Chemo Regimen_Changes,object,425,7
-Neoadjuvant Chemo Regimen_Reductions,object,425,5
+Neoadjuvant Chemo Regimen_Changes,float64,425,7
+Neoadjuvant Chemo Regimen_Reductions,float64,425,5
 Date of Initiation,datetime64[ns],409,370
 Date of Completion,datetime64[ns],388,351
 Duration of Neoadjuvant Chemo (months),float64,390,8
@@ -424,8 +424,8 @@ Adjuvant Chemo Regimen_Initial_Folfiri,boolean,857,3
 Adjuvant Chemo Regimen_Initial_Biologic,boolean,857,3
 Adjuvant Chemo Regimen_Initial_5FU,boolean,857,3
 Adjuvant Chemo Regimen_Initial_Folfox,boolean,857,3
-Adjuvant Chemo Regimen_Changes,object,857,8
-Adjuvant Chemo Regimen_Reductions,object,857,3
+Adjuvant Chemo Regimen_Changes,float64,857,8
+Adjuvant Chemo Regimen_Reductions,float64,857,3
 Adjuvant Chemo Duration,float64,647,52
 Date of Initiation_AdjChemo,datetime64[ns],700,593
 Date of Completion_AdjChemo,datetime64[ns],655,551
@@ -487,7 +487,7 @@ Chemotherapy Regimen_Initial_Folfiri,boolean,202,3
 Chemotherapy Regimen_Initial_Biologic,boolean,202,3
 Chemotherapy Regimen_Initial_5FU,boolean,202,3
 Chemotherapy Regimen_Initial_Folfox,boolean,202,3
-Chemotherapy Regimen_Changes,object,202,7
+Chemotherapy Regimen_Changes,float64,202,7
 Radiation,object,260,3
 Grey (Gy)_Recurrence_Rad,float64,45,25
 Ablation_Recurrence,object,165,3
