@@ -213,8 +213,7 @@ Diverting Loop Ileostomy,object,1530,3
 Additional Pelvic Nodes Resected,object,1346,7
 Frozen Section Margin,object,1315,3
 Frozen Margin Positive,object,185,3
-"Margin 
-Re-Resection",object,442,3
+Margin Re-Resection,object,442,3
 Operative Time (minutes),float64,1587,478
 Intraop Drain Placement,object,1477,3
 Type of Drainage System,object,945,4
