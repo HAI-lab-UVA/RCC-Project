@@ -3,6 +3,7 @@ import scipy
 import time
 import numpy as np
 import pandas as pd
+from collections.abc import Callable
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -77,7 +78,7 @@ class SankeyPlot:
         
         # Create sankey/alluvial diagram
         colors = None
-        if (color_json != None): 
+        if (color_json is not None): 
             # Load color dict
             with open(color_json) as fp:
                 color_dict = json.load(fp)
@@ -122,8 +123,9 @@ class SankeyPlot:
         fig.update_layout(title_text="Sankey Diagram w/ response: {}".format(response), font_size=10, height=500, width=300 * len(feats))
         return fig
 
-def run_sfs(self, model:BaseEstimator, train:pd.DataFrame, labels:pd.Series, key:str, results_path:str,
-            direction:str='forward', n_features:int|float='auto', tol:float=None):
+def run_sfs(self, model:BaseEstimator, train:pd.DataFrame, labels:pd.Series, key:str, results_path:str, 
+            direction:str='forward', n_features:int|float='auto', tol:float=None,
+            retrain=True) -> BaseEstimator:
     
     with open(results_path) as fp:
         results = json.load(fp)
@@ -139,25 +141,33 @@ def run_sfs(self, model:BaseEstimator, train:pd.DataFrame, labels:pd.Series, key
     results[key] = sfs.get_feature_names_out().tolist()
     with open(results_path, 'w') as fp:
         json.dump(results, fp)
+    
+    if (retrain == True):
+        # Train model on only the selected features
+        model = model.fit(train[results[key]], labels)
+    return model
 
 def analyze_sfs(self, data:pd.DataFrame, train:pd.DataFrame, labels_train:pd.Series, 
-                model_dict:dict, agreement:int, direction:str, 
-                response:str=None, test:pd.DataFrame=None, labels_test:pd.Series=None, 
-                n_features:int|float='auto', tol:float=None, iteration:int=None, 
-                save_path:str=None, load_only=False):
+                model_dict:dict, agreement:int, direction:str, tree_model:BaseEstimator=None, 
+                evaluate=True, response:str=None, test:pd.DataFrame=None, labels_test:pd.Series=None, 
+                n_features:int|float='auto', tol:float=None, feature_parser:Callable=None,
+                iteration:int=None, save_path:str=None, load_only=False):
     
     if (load_only == False): 
         # Generate new results
-        # NOTE: Could technically run in parallel, but I'm not doing that right now...
-        run_sfs(ridge, train, labels_train, "ridge{}".format(iteration), save_path, direction, n_features, tol)
-        run_sfs(svc, train, labels_train, "svc{}".format(iteration), save_path, direction, n_features, tol)
-        run_sfs(sgd, train, labels_train, "sgd{}".format(iteration), save_path, direction, n_features, tol)
-        run_sfs(mlp, train, labels_train, "mlp{}".format(iteration), save_path, direction, n_features, tol)
-        run_sfs(boost, train, labels_train, "adaboost{}".format(iteration), save_path, direction, n_features, tol)
-    
-    # TODO: Place into results file
-    boost_fitted = boost.fit(train, labels_train)
-    boost_feats = train.columns.to_series().index[pd.Series(boost_fitted.feature_importances_, dtype='bool')].tolist()
+        # NOTE: Could run each in parallel, but have opted for a multithreaded sfs
+        for name, model in model_dict.items():
+            run_sfs(model, train, labels_train, "{}{}".format(name, iteration), save_path, direction, n_features, tol)
+        if tree_model is not None:
+            # Train and evaluate feature importances for the given tree model
+            tree_fitted = tree_model.train(train, labels_train)
+            tree_feats = train.columns.to_series().index[pd.Series(tree_fitted.feature_importances_, dtype='bool')].tolist()
+            # Save feature importances to save_path
+            with open(save_path) as fp:
+                results = json.load(fp)
+            results["tree - imp feats{}".format(iteration)] = tree_feats
+            with open(save_path, 'w') as fp:
+                json.dump(results, fp)
 
     # Load saved results
     with open(save_path) as fp:
@@ -172,9 +182,6 @@ def analyze_sfs(self, data:pd.DataFrame, train:pd.DataFrame, labels_train:pd.Ser
         all_feats['feats'].extend(value)
         all_feats['model'].extend(np.full_like(value, key).tolist())
 
-    all_feats['feats'].extend(boost_feats)
-    all_feats['model'].extend(np.full_like(boost_feats, 'adaboost - imp feats').tolist())
-
     plt.figure(figsize=(15,6))
     sns.histplot(data=all_feats, x='feats', stat="count", multiple="stack", element="bars", hue='model', legend=True, shrink=0.5)
     plt.xticks(rotation="vertical")
@@ -183,12 +190,14 @@ def analyze_sfs(self, data:pd.DataFrame, train:pd.DataFrame, labels_train:pd.Ser
     feat_df = pd.DataFrame(all_feats)
     imp_feats = [feat for feat in feat_df['feats'].unique().tolist() if feat_df['feats'].value_counts()[feat] >= agreement]
 
-    sfs_feats = [feat for feat in data.columns.to_list() if any(feat == extract_original_feature(imp_feat) for imp_feat in imp_feats)]
+    sfs_feats = [feat for feat in data.columns.to_list() if any(feat == feature_parser(imp_feat) for imp_feat in imp_feats)]
 
     return sfs_feats
 
-def build_feature_chain(self, data:pd.DataFrame, enc_train:pd.DataFrame, labels_train:pd.Series, enc_test:pd.DataFrame, labels_test:pd.Series,
-                        agreement:int, response:str, direction:str, n_features:int|float='auto', tol:float=None, saved_path:str=None):
+def build_feature_chain(self, data:pd.DataFrame, enc_train:pd.DataFrame, labels_train:pd.Series, 
+                        enc_test:pd.DataFrame, labels_test:pd.Series, agreement:int, 
+                        response:str, direction:str, n_features:int|float='auto', tol:float=None, 
+                        feature_parser:Callable=None, saved_path:str=None):
     # Load feature categories dict
     with open('../Data Sources/Cleaned/feature_categories.json') as fp:
         feature_cats = json.load(fp)
@@ -213,7 +222,7 @@ def build_feature_chain(self, data:pd.DataFrame, enc_train:pd.DataFrame, labels_
     for i, category_list in enumerate(stages):
         cur_feats = []
         for category in category_list:
-            cur_feats.extend([feat for feat in enc_train.columns.to_list() if extract_original_feature(feat) in feature_cats[category]])
+            cur_feats.extend([feat for feat in enc_train.columns.to_list() if feature_parser(feat) in feature_cats[category]])
 
         train_data = enc_train[cur_feats]
         test_data = enc_test[cur_feats]
