@@ -29,12 +29,13 @@ class SankeyPlot:
         self.val_counts = []
         self.x_reference = []
 
-    def recurse_sankey_branch(self, data:pd.DataFrame, feats:list, response:str,
-                              color_swatch:list, hover_swatch:list,) -> None:
+    def recurse_sankey_branch(self, data:pd.DataFrame, feats:list, response:str, start_index:int,
+                              color_swatch:list, hover_swatch:list, branch_feats:list=None) -> None:
         # TODO:
-        # * Group links by color
+        # * Group links by color (adjust the order added to list to do all of the same response level first)
         # * Display prop. of response levels on hover for feature bar
-        for i, feat in enumerate(feats):
+        for i in range(start_index, len(feats)):
+            feat = feats[i]
             self.val_counts.append(data[feat].value_counts(dropna=False).sort_values(ascending=False))
             unique_vals = list(self.val_counts[i].index)
             self.labels.extend([feat + ': ' + str(val) for val in unique_vals])
@@ -76,11 +77,20 @@ class SankeyPlot:
                             self.link_colors.append(color_swatch[x])
                             self.link_labels.append(response + ": " + str(response_value))
                             self.hover_colors.append(hover_swatch[x])
+                if (branch_feats is not None and feat in branch_feats):
+                    # Filter data and recurse on each level of branch_feat
+                    # BUG: No outgoing edges from second level of feat
+                    for j, value in enumerate(unique_vals):
+                        if pd.isnull(value): 
+                            value_mask = data[feat].isna()
+                        else: value_mask = data[feat] == value
+                        self.recurse_sankey_branch(data[value_mask], feats, response, i+1, color_swatch, hover_swatch, branch_feats)
+                    return
+
 
     def build_sankey(self, data:pd.DataFrame, feats:list, response:str, 
-                     color_swatch:list, hover_swatch:list,
-                     significance=True, color_json:str=None,
-                     vertical_pad=15) -> go.Figure:
+                     color_swatch:list, hover_swatch:list, branch_feats:list=None,
+                     significance=True, color_json:str=None, vertical_pad=15) -> go.Figure:
         
         # TODO: Decide whether to reset these when func called
         # labels = []
@@ -97,7 +107,7 @@ class SankeyPlot:
         self.response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
         self.x_reference = np.linspace(0.0, 1.0, num=len(feats)).tolist()
 
-        self.recurse_sankey_branch(data, feats, response, color_swatch, hover_swatch)
+        self.recurse_sankey_branch(data, feats, response, 0, color_swatch, hover_swatch, branch_feats)
         
         # Create sankey/alluvial diagram
         colors = None
@@ -137,6 +147,7 @@ class SankeyPlot:
             for i, p in enumerate(self.p_values):
                 fig.add_annotation(
                     text = "p-value: {:.3e}".format(p),
+                    # BUG: index out of range for branching
                     x = self.x_reference[i],
                     y = 0,
                     yshift = -50,
