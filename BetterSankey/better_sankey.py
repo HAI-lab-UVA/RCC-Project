@@ -1,6 +1,6 @@
 import json
 import scipy
-import time
+from time import time
 import numpy as np
 import pandas as pd
 from collections.abc import Callable
@@ -20,6 +20,7 @@ class SankeyPlot:
     def build_sankey(self, data:pd.DataFrame, feats:list, response:str, 
                      significance=True, color_json:str=None,
                      color_swatch:list=None, hover_swatch:list=None, vertical_pad=15) -> go.Figure:
+        
         labels = []
         sources = []
         targets = []
@@ -208,22 +209,26 @@ class SankeyPlot:
         return sfs_feats
 
     def build_feature_chain(self, data:pd.DataFrame, enc_train:pd.DataFrame, labels_train:pd.Series, 
-                            enc_test:pd.DataFrame, labels_test:pd.Series, agreement:int, stages:list, category_dict:str,
-                            response:str, direction:str, n_features:int|float='auto', tol:float=None, 
-                            feature_parser:Callable=None, saved_path:str=None):
+                            model_dict:dict, agreement:int, stages:list, category_dict:str,
+                            response:str, direction:str, 
+                            enc_test:pd.DataFrame=None, labels_test:pd.Series=None, n_features:int|float='auto', tol:float=None, 
+                            evaluate=True, tree_model:BaseEstimator=None, 
+                            color_json:str=None, color_swatch:list=None, hover_swatch:list=None,
+                            save_dir="./", feature_parser:Callable=None, load_sfs:str=None) -> go.Figure:
 
         # Load feature categories dict
         with open(category_dict) as fp:
             feature_cats = json.load(fp)
 
-        load_only = saved_path is not None
+        load_only = load_sfs is not None
         if (load_only == False):
             # Create new file to write results to
-            saved_path = './{}_n{}_{:.0f}_sfs.json'.format(direction, n_features, time())
-            if tol: saved_path = './{}_tol{}_{:.0f}_sfs.json'.format(direction, tol, time())
-            with open(saved_path, 'x') as fp:
+            save_path = save_dir + "{}_n{}_{:.0f}_sfs.json".format(direction, n_features, time())
+            if tol: save_path = save_dir + "{}_tol{}_{:.0f}_sfs.json".format(direction, tol, time())
+            with open(save_path, 'x') as fp:
                 # Dump empty dict
                 json.dump(dict(), fp)
+        else: save_path=load_sfs
 
         selected_feats = []
         for i, category_list in enumerate(stages):
@@ -232,13 +237,18 @@ class SankeyPlot:
                 cur_feats.extend([feat for feat in enc_train.columns.to_list() if feature_parser(feat) in feature_cats[category]])
 
             train_data = enc_train[cur_feats]
-            test_data = enc_test[cur_feats]
+            test_data = None
+            if (enc_test is not None): test_data = enc_test[cur_feats]
 
-            sfs_feats = self.analyze_sfs(data, train_data, labels_train, test_data, labels_test,
-                                    agreement, direction, n_features, tol, 
-                                    i, saved_path, load_only)
+            sfs_feats = self.analyze_sfs(data, train_data, labels_train, model_dict,
+                                         agreement, direction, tree_model, evaluate, test_data, labels_test,
+                                         n_features, tol, feature_parser, i, save_path, load_only)
+            
             selected_feats.extend(sfs_feats)
 
         # Need to append response to plot_feats so it gets plotted
+        print(hover_swatch)
         selected_feats.append(response)
-        self.build_sankey(data, selected_feats, response)
+        fig = self.build_sankey(data, selected_feats, response, 
+                                color_json=color_json, color_swatch=color_swatch, hover_swatch=hover_swatch)
+        return fig
