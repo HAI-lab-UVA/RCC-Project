@@ -15,47 +15,46 @@ from sklearn.base import BaseEstimator
 
 class SankeyPlot: 
     def __init__(self) -> None:
-        pass
+        self.labels = []
+        self.sources = []
+        self.targets = []
+        self.values = []
+        self.x_pos = []
+        self.y_pos = []
+        self.p_values = []
+        self.link_colors = []
+        self.link_labels = []
+        self.hover_colors = []
+        self.response_vals = []
+        self.val_counts = []
+        self.x_reference = []
 
-    def build_sankey(self, data:pd.DataFrame, feats:list, response:str, 
-                     significance=True, color_json:str=None,
-                     color_swatch:list=None, hover_swatch:list=None, vertical_pad=15) -> go.Figure:
-        
-        labels = []
-        sources = []
-        targets = []
-        values = []
-        x_pos = []
-        y_pos = []
-        p_values = []
-        link_colors = []
-        link_labels = []
-        hover_colors = []
-        response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
-
-        val_counts = []
-        x_reference = np.linspace(0.0, 1.0, num=len(feats)).tolist()
+    def recurse_sankey_branch(self, data:pd.DataFrame, feats:list, response:str,
+                              color_swatch:list, hover_swatch:list,) -> None:
+        # TODO:
+        # * Group links by color
+        # * Display prop. of response levels on hover for feature bar
         for i, feat in enumerate(feats):
-            val_counts.append(data[feat].value_counts(dropna=False).sort_values(ascending=False))
-            unique_vals = list(val_counts[i].index)
-            labels.extend([feat + ': ' + str(val) for val in unique_vals])
-            x_pos.extend(np.full(len(unique_vals), x_reference[i]))
+            self.val_counts.append(data[feat].value_counts(dropna=False).sort_values(ascending=False))
+            unique_vals = list(self.val_counts[i].index)
+            self.labels.extend([feat + ': ' + str(val) for val in unique_vals])
+            self.x_pos.extend(np.full(len(unique_vals), self.x_reference[i]))
             # Accurately calculate y-position between 0 and 1
-            level_counts = val_counts[i].to_list()
+            level_counts = self.val_counts[i].to_list()
             level_props = [count / sum(level_counts) for count in level_counts]
             y_align = [1 - (sum(level_props[:i]) + (val / 2)) for i, val in enumerate(level_props)]
             # Reverse list
-            y_pos.extend(y_align[::-1])
+            self.y_pos.extend(y_align[::-1])
             # Do chi^2 tests
             if (feat != response):
                 contingency_tab = pd.crosstab(data[feat], data[response], margins=False, dropna=False)
                 x2_res = scipy.stats.chi2_contingency(contingency_tab)
-                p_values.append(x2_res.pvalue)
+                self.p_values.append(x2_res.pvalue)
             if (i > 0):
-                prior_unique_vals = list(val_counts[i - 1].index)
+                prior_unique_vals = list(self.val_counts[i - 1].index)
                 for j, value in enumerate(unique_vals):
                     for k, prior_value in enumerate(prior_unique_vals):
-                        for x, response_value in enumerate(response_vals):
+                        for x, response_value in enumerate(self.response_vals):
                             # Count num samples with both values
                             if pd.isnull(value): 
                                 value_mask = data[feat].isna()
@@ -69,14 +68,36 @@ class SankeyPlot:
                                 response_value_mask = data[response].isna()
                             else: response_value_mask = data[response] == response_value
 
-                            values.append(len(data[(value_mask) & (prior_value_mask) & (response_value_mask)]) / len(data))
+                            self.values.append(len(data[(value_mask) & (prior_value_mask) & (response_value_mask)]) / len(data))
                             # Set source: index labels by -1 * (len(val_counts) + len(prior_val_counts) - k)
-                            sources.append(labels.index(labels[-1 * (len(unique_vals) + len(prior_unique_vals) - k)]))
+                            self.sources.append(self.labels.index(self.labels[-1 * (len(unique_vals) + len(prior_unique_vals) - k)]))
                             # Set target: index labels by -1 * (len(val_counts) - j)
-                            targets.append(labels.index(labels[-1 * (len(unique_vals) - j)]))
-                            link_colors.append(color_swatch[x])
-                            link_labels.append(response + ": " + str(response_value))
-                            hover_colors.append(hover_swatch[x])
+                            self.targets.append(self.labels.index(self.labels[-1 * (len(unique_vals) - j)]))
+                            self.link_colors.append(color_swatch[x])
+                            self.link_labels.append(response + ": " + str(response_value))
+                            self.hover_colors.append(hover_swatch[x])
+
+    def build_sankey(self, data:pd.DataFrame, feats:list, response:str, 
+                     color_swatch:list, hover_swatch:list,
+                     significance=True, color_json:str=None,
+                     vertical_pad=15) -> go.Figure:
+        
+        # TODO: Decide whether to reset these when func called
+        # labels = []
+        # sources = []
+        # targets = []
+        # values = []
+        # x_pos = []
+        # y_pos = []
+        # p_values = []
+        # link_colors = []
+        # link_labels = []
+        # hover_colors = []
+        # val_counts = []
+        self.response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
+        self.x_reference = np.linspace(0.0, 1.0, num=len(feats)).tolist()
+
+        self.recurse_sankey_branch(data, feats, response, color_swatch, hover_swatch)
         
         # Create sankey/alluvial diagram
         colors = None
@@ -85,8 +106,8 @@ class SankeyPlot:
             with open(color_json) as fp:
                 color_dict = json.load(fp)
 
-            colors = [color_dict[label.split(':')[0]] for label in labels[:-len(response_vals)]]
-            colors.extend(hover_swatch[:len(response_vals)])
+            colors = [color_dict[label.split(':')[0]] for label in self.labels[:-len(self.response_vals)]]
+            colors.extend(hover_swatch[:len(self.response_vals)])
 
         fig = go.Figure(data=[go.Sankey(
             arrangement='snap',
@@ -95,28 +116,28 @@ class SankeyPlot:
                 pad = vertical_pad,
                 thickness = 20,
                 line = dict(color = "black", width = 0.5),
-                label = labels,
+                label = self.labels,
                 color = colors,
-                x = x_pos,
-                y = y_pos,
+                x = self.x_pos,
+                y = self.y_pos,
             ),
             link = dict(
-                source = sources, # indices correspond to labels
-                target = targets,
-                value = values,
-                label = link_labels,
-                color = link_colors,
+                source = self.sources, # indices correspond to labels
+                target = self.targets,
+                value = self.values,
+                label = self.link_labels,
+                color = self.link_colors,
                 # BUG: In Plotly package, does not update colors
-                hovercolor = hover_colors,
+                hovercolor = self.hover_colors,
             ))])
 
         if (significance):
             # Add chi^2 p-vals as annotations
             # NOTE: Assumes response is last (x_reference[-1])
-            for i, p in enumerate(p_values):
+            for i, p in enumerate(self.p_values):
                 fig.add_annotation(
                     text = "p-value: {:.3e}".format(p),
-                    x = x_reference[i],
+                    x = self.x_reference[i],
                     y = 0,
                     yshift = -50,
                     showarrow = False,
@@ -196,6 +217,7 @@ class SankeyPlot:
             all_feats['feats'].extend(value)
             all_feats['model'].extend(np.full_like(value, key).tolist())
 
+        # TODO: Save histplot to folder
         plt.figure(figsize=(15,6))
         sns.histplot(data=all_feats, x='feats', stat="count", multiple="stack", element="bars", hue='model', legend=True, shrink=0.5)
         plt.xticks(rotation="vertical")
