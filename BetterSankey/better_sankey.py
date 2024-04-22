@@ -28,63 +28,103 @@ class SankeyPlot:
         self.response_vals = []
         self.val_counts = []
         self.x_reference = []
+        self.color_swatch = []
+        self.hover_swatch = []
+        self.branch_feats = None
 
-    def recurse_sankey_branch(self, data:pd.DataFrame, feats:list, response:str, start_index:int,
-                              color_swatch:list, hover_swatch:list, branch_feats:list=None) -> None:
+    def recurse_sankey_branch(self, branch_mask:pd.Series, start_index:int=0, y_min:float=0.0, y_max:float=1.0,
+                              branch_source:int=None, branch_condition:str="") -> None:
         # TODO:
         # * Group links by color (adjust the order added to list to do all of the same response level first)
         # * Display prop. of response levels on hover for feature bar
-        for i in range(start_index, len(feats)):
-            feat = feats[i]
+        for i in range(start_index, len(self.feats)):
+            feat = self.feats[i]
+            data = self.data[branch_mask]
             self.val_counts.append(data[feat].value_counts(dropna=False).sort_values(ascending=False))
-            unique_vals = list(self.val_counts[i].index)
-            self.labels.extend([feat + ': ' + str(val) for val in unique_vals])
+            unique_vals = list(self.val_counts[-1].index)
+
+            # Label w/ feature values plus any branch conditions
+            level_labels = [feat + ': ' + str(val) + branch_condition for val in unique_vals]
+            self.labels.extend(level_labels)
+
+            # X-positions stay the same regardless of whether we are in a branch
             self.x_pos.extend(np.full(len(unique_vals), self.x_reference[i]))
+
             # Accurately calculate y-position between 0 and 1
-            level_counts = self.val_counts[i].to_list()
+            level_counts = self.val_counts[-1].to_list()
+            # Calculate relative proportions of each level
             level_props = [count / sum(level_counts) for count in level_counts]
-            y_align = [1 - (sum(level_props[:i]) + (val / 2)) for i, val in enumerate(level_props)]
-            # Reverse list
-            self.y_pos.extend(y_align[::-1])
-            # Do chi^2 tests
-            if (feat != response):
-                contingency_tab = pd.crosstab(data[feat], data[response], margins=False, dropna=False)
+            # Assign y-position of node center based on the hight (proportion) of each level
+            y_align = [1 - (sum(level_props[:n]) + (val / 2)) for n, val in enumerate(level_props)]
+            # Reverse list to maintain order
+            y_align = y_align[::-1]
+            # Account for y_pos in branches w/ ((y_max - y_min) * y_align) + min
+            self.y_pos.extend([((y_max - y_min) * y) + y_min for y in y_align])
+
+            if (feat != self.response):
+                # Do chi^2 tests for feat vs response
+                contingency_tab = pd.crosstab(data[feat], data[self.response], margins=False, dropna=False)
                 x2_res = scipy.stats.chi2_contingency(contingency_tab)
                 self.p_values.append(x2_res.pvalue)
+
             if (i > 0):
-                prior_unique_vals = list(self.val_counts[i - 1].index)
+                # Define links between nodes
+                begin_branch = False
+                prior_unique_vals = list(self.val_counts[-2].index)
+                if (i == start_index and branch_source is not None):
+                    # Immediately after branch, there will only be one prior unique val
+                    begin_branch = True
+                    # We don't care what this value is, we just need a list with one element
+                    prior_unique_vals = [None]
+
                 for j, value in enumerate(unique_vals):
                     for k, prior_value in enumerate(prior_unique_vals):
                         for x, response_value in enumerate(self.response_vals):
+                            # BUG: All levels nan
                             # Count num samples with both values
                             if pd.isnull(value): 
                                 value_mask = data[feat].isna()
                             else: value_mask = data[feat] == value
                             
                             if pd.isnull(prior_value): 
-                                prior_value_mask = data[feats[i-1]].isna()
-                            else: prior_value_mask = data[feats[i-1]] == prior_value
+                                prior_value_mask = data[self.feats[-2]].isna()
+                            else: prior_value_mask = data[self.feats[-2]] == prior_value
 
                             if pd.isnull(response_value): 
-                                response_value_mask = data[response].isna()
-                            else: response_value_mask = data[response] == response_value
+                                response_value_mask = data[self.response].isna()
+                            else: response_value_mask = data[self.response] == response_value
 
-                            self.values.append(len(data[(value_mask) & (prior_value_mask) & (response_value_mask)]) / len(data))
-                            # Set source: index labels by -1 * (len(val_counts) + len(prior_val_counts) - k)
-                            self.sources.append(self.labels.index(self.labels[-1 * (len(unique_vals) + len(prior_unique_vals) - k)]))
-                            # Set target: index labels by -1 * (len(val_counts) - j)
-                            self.targets.append(self.labels.index(self.labels[-1 * (len(unique_vals) - j)]))
-                            self.link_colors.append(color_swatch[x])
-                            self.link_labels.append(response + ": " + str(response_value))
-                            self.hover_colors.append(hover_swatch[x])
-                if (branch_feats is not None and feat in branch_feats):
-                    # Filter data and recurse on each level of branch_feat
-                    # BUG: No outgoing edges from second level of feat
+                            if (begin_branch == True):
+                                # Set values: prop of samples that meet the branch conditions, ignoring value of prior node
+                                self.values.append(len(self.data[(value_mask) & (response_value_mask) & (branch_mask)]) / len(self.data))
+                                # Set source: just the source of this branch
+                                self.sources.append(branch_source)
+                            else:
+                                # Set values: prop of samples in whole dataset, not branch subset
+                                self.values.append(len(self.data[(value_mask) & (prior_value_mask) & (response_value_mask) & (branch_mask)]) / len(self.data))
+                                # Set source: index labels by -1 * (len(val_counts) + len(prior_val_counts) - k)
+                                self.sources.append(self.labels.index(self.labels[-1 * (len(unique_vals) + len(prior_unique_vals) - k)]))
+
+                            # Set target: index of this level's label
+                            self.targets.append(self.labels.index(level_labels[j]))
+                            self.link_colors.append(self.color_swatch[x])
+                            self.link_labels.append(self.response + ": " + str(response_value))
+                            self.hover_colors.append(self.hover_swatch[x])
+
+                if (self.branch_feats is not None and feat in self.branch_feats):
+                    # Recurse on each level of branch_feat
                     for j, value in enumerate(unique_vals):
+                        # Set y_min and y_max relative to height/prop of feat level
+                        branch_y_max = y_max - sum(level_props[:j])
+                        branch_y_min = y_min + sum(level_props[j+1:])
+                        # Get the index for the branch's source
+                        new_branch_source = self.labels.index(level_labels[j])
+                        # Update branch_mask
                         if pd.isnull(value): 
-                            value_mask = data[feat].isna()
-                        else: value_mask = data[feat] == value
-                        self.recurse_sankey_branch(data[value_mask], feats, response, i+1, color_swatch, hover_swatch, branch_feats)
+                            new_branch_mask = branch_mask & self.data[feat].isna()
+                        else: new_branch_mask = branch_mask & (self.data[feat] == value)
+                        self.recurse_sankey_branch(new_branch_mask, i+1, branch_y_max, branch_y_min, new_branch_source,
+                                                   "\n" + level_labels[j])
                     return
 
 
@@ -104,10 +144,17 @@ class SankeyPlot:
         # link_labels = []
         # hover_colors = []
         # val_counts = []
+        self.data = data
+        self.feats = feats
+        self.response = response
         self.response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
         self.x_reference = np.linspace(0.0, 1.0, num=len(feats)).tolist()
+        self.color_swatch = color_swatch
+        self.hover_swatch = hover_swatch
+        self.branch_feats = branch_feats
+        dummy_mask = pd.Series([True]).repeat(len(data)).reset_index()
 
-        self.recurse_sankey_branch(data, feats, response, 0, color_swatch, hover_swatch, branch_feats)
+        self.recurse_sankey_branch(dummy_mask)
         
         # Create sankey/alluvial diagram
         colors = None
@@ -149,6 +196,7 @@ class SankeyPlot:
                     text = "p-value: {:.3e}".format(p),
                     # BUG: index out of range for branching
                     x = self.x_reference[i],
+                    # TODO: Offset y for branches
                     y = 0,
                     yshift = -50,
                     showarrow = False,
