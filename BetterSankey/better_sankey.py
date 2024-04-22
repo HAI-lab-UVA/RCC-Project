@@ -80,7 +80,6 @@ class SankeyPlot:
                 for j, value in enumerate(unique_vals):
                     for k, prior_value in enumerate(prior_unique_vals):
                         for x, response_value in enumerate(self.response_vals):
-                            # BUG: All levels nan
                             # Count num samples with both values
                             if pd.isnull(value): 
                                 value_mask = data[feat].isna()
@@ -152,7 +151,7 @@ class SankeyPlot:
         self.color_swatch = color_swatch
         self.hover_swatch = hover_swatch
         self.branch_feats = branch_feats
-        dummy_mask = pd.Series([True]).repeat(len(data)).reset_index()
+        dummy_mask = pd.Series([True]).repeat(len(data)).reset_index(drop=True)
 
         self.recurse_sankey_branch(dummy_mask)
         
