@@ -86,8 +86,8 @@ class SankeyPlot:
                             else: value_mask = data[feat] == value
                             
                             if pd.isnull(prior_value): 
-                                prior_value_mask = data[self.feats[-2]].isna()
-                            else: prior_value_mask = data[self.feats[-2]] == prior_value
+                                prior_value_mask = data[self.feats[i-1]].isna()
+                            else: prior_value_mask = data[self.feats[i-1]] == prior_value
 
                             if pd.isnull(response_value): 
                                 response_value_mask = data[self.response].isna()
@@ -143,7 +143,7 @@ class SankeyPlot:
         # link_labels = []
         # hover_colors = []
         # val_counts = []
-        self.data = data
+        self.data = data.reset_index(drop=True)
         self.feats = feats
         self.response = response
         self.response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
