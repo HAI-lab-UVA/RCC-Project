@@ -32,7 +32,8 @@ class SankeyPlot:
         self.hover_swatch = []
         self.branch_feats = None
 
-    def recurse_sankey_branch(self, branch_mask:pd.Series, start_index:int=0, y_min:float=0.0, y_max:float=1.0,
+    def recurse_sankey_branch(self, branch_mask:pd.Series, start_index:int=0, 
+                              y_max:float=1.0, y_min:float=0.0,
                               branch_source:int=None, branch_condition:str="") -> None:
         # TODO:
         # * Group links by color (adjust the order added to list to do all of the same response level first)
@@ -50,15 +51,13 @@ class SankeyPlot:
             # X-positions stay the same regardless of whether we are in a branch
             self.x_pos.extend(np.full(len(unique_vals), self.x_reference[i]))
 
-            # Accurately calculate y-position between 0 and 1
+            # Accurately calculate y-position between 0 (top) and 1 (bottom)... blame plotly not me
             level_counts = self.val_counts[-1].to_list()
             # Calculate relative proportions of each level
             level_props = [count / sum(level_counts) for count in level_counts]
             # Assign y-position of node center based on the hight (proportion) of each level
-            y_align = [1 - (sum(level_props[:n]) + (val / 2)) for n, val in enumerate(level_props)]
-            # Reverse list to maintain order
-            y_align = y_align[::-1]
-            # Account for y_pos in branches w/ ((y_max - y_min) * y_align) + min
+            y_align = [sum(level_props[:n]) + (p / 2) for n, p in enumerate(level_props)]
+            # Account for y_pos in branches
             self.y_pos.extend([((y_max - y_min) * y) + y_min for y in y_align])
 
             if (feat != self.response):
@@ -111,11 +110,15 @@ class SankeyPlot:
                             self.hover_colors.append(self.hover_swatch[x])
 
                 if (self.branch_feats is not None and feat in self.branch_feats):
+                    # TODO:
+                    # * Response colors messed up for at least one branch
+                    # * Labels are waaaaaaay too long
+
                     # Recurse on each level of branch_feat
                     for j, value in enumerate(unique_vals):
                         # Set y_min and y_max relative to height/prop of feat level
-                        branch_y_max = y_max - sum(level_props[:j])
-                        branch_y_min = y_min + sum(level_props[j+1:])
+                        branch_y_max = y_max - sum(level_props[j+1:])
+                        branch_y_min = y_min + sum(level_props[:j])
                         # Get the index for the branch's source
                         new_branch_source = self.labels.index(level_labels[j])
                         # Update branch_mask
