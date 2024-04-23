@@ -25,10 +25,13 @@ class SankeyPlot:
         self.link_colors = []
         self.link_labels = []
         self.hover_colors = []
+        self.response_colors = []
         self.response_vals = []
         self.val_counts = []
         self.x_reference = []
+        self.colors = []
         self.color_swatch = []
+        self.link_swatch = []
         self.hover_swatch = []
         self.branch_feats = None
 
@@ -47,6 +50,13 @@ class SankeyPlot:
             # Label w/ feature values plus any branch conditions
             level_labels = [feat + ': ' + str(val) + branch_condition for val in unique_vals]
             self.labels.extend(level_labels)
+
+            # Set the proper color for the node
+            if (feat == self.response):
+                self.colors.extend(self.response_colors)
+            else: 
+                for _ in unique_vals:
+                    self.colors.append(self.color_swatch[i])
 
             # X-positions stay the same regardless of whether we are in a branch
             self.x_pos.extend(np.full(len(unique_vals), self.x_reference[i]))
@@ -105,7 +115,7 @@ class SankeyPlot:
 
                             # Set target: index of this level's label
                             self.targets.append(self.labels.index(level_labels[j]))
-                            self.link_colors.append(self.color_swatch[x])
+                            self.link_colors.append(self.link_swatch[x])
                             self.link_labels.append(self.response + ": " + str(response_value))
                             self.hover_colors.append(self.hover_swatch[x])
 
@@ -130,8 +140,8 @@ class SankeyPlot:
                     return
 
 
-    def build_sankey(self, data:pd.DataFrame, feats:list, response:str, 
-                     color_swatch:list, hover_swatch:list, branch_feats:list=None,
+    def build_sankey(self, data:pd.DataFrame, feats:list, response:str,
+                     link_swatch:list, hover_swatch:list, color_swatch:list=None, branch_feats:list=None,
                      significance=True, color_json:str=None, vertical_pad=15) -> go.Figure:
         
         # TODO: Decide whether to reset these when func called
@@ -151,22 +161,27 @@ class SankeyPlot:
         self.response = response
         self.response_vals = list(data[response].value_counts(dropna=False).sort_values(ascending=False).index)
         self.x_reference = np.linspace(0.0, 1.0, num=len(feats)).tolist()
-        self.color_swatch = color_swatch
+        self.link_swatch = link_swatch
         self.hover_swatch = hover_swatch
         self.branch_feats = branch_feats
         dummy_mask = pd.Series([True]).repeat(len(data)).reset_index(drop=True)
 
-        self.recurse_sankey_branch(dummy_mask)
-        
         # Create sankey/alluvial diagram
-        colors = None
+        self.response_colors = self.hover_swatch[:len(self.response_vals)]
+        self.color_swatch = color_swatch
         if (color_json is not None): 
             # Load color dict
             with open(color_json) as fp:
                 color_dict = json.load(fp)
 
-            colors = [color_dict[label.split(':')[0]] for label in self.labels[:-len(self.response_vals)]]
-            colors.extend(hover_swatch[:len(self.response_vals)])
+            self.color_swatch = [color_dict[feat] for feat in self.feats if feat != response]
+            self.response_colors = hover_swatch[:len(self.response_vals)]
+        elif (color_swatch is None):
+            print("ERROR: please provide an argument for one of 'color_swatch' or 'color_json'.")
+            return None
+
+        self.recurse_sankey_branch(dummy_mask)
+        
 
         fig = go.Figure(data=[go.Sankey(
             arrangement='snap',
@@ -176,7 +191,7 @@ class SankeyPlot:
                 thickness = 20,
                 line = dict(color = "black", width = 0.5),
                 label = self.labels,
-                color = colors,
+                color = self.colors,
                 x = self.x_pos,
                 y = self.y_pos,
             ),
@@ -197,9 +212,9 @@ class SankeyPlot:
                 fig.add_annotation(
                     text = "p-value: {:.3e}".format(p),
                     # BUG: index out of range for branching
-                    x = self.x_reference[i],
+                    x = self.x_pos[i],
                     # TODO: Offset y for branches
-                    y = 0,
+                    y = self.y_pos[i],
                     yshift = -50,
                     showarrow = False,
                 )
