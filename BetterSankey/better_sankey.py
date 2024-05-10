@@ -1,5 +1,6 @@
 import json
 import scipy
+import base64
 from time import time
 import numpy as np
 import pandas as pd
@@ -48,10 +49,11 @@ class SankeyPlot:
             unique_vals = list(self.val_counts[-1].index)
 
             # Label w/ feature values plus any branch conditions
+            # NOTE: Must be unique
             level_labels = [feat + ': ' + str(val) + branch_condition for val in unique_vals]
             self.labels.extend(level_labels)
 
-            # Set the proper color for the node
+            # Set the proper color for the nodes
             if (feat == self.response):
                 self.colors.extend(self.response_colors)
             else: 
@@ -212,10 +214,10 @@ class SankeyPlot:
                 fig.add_annotation(
                     text = "p-value: {:.3e}".format(p),
                     # BUG: index out of range for branching
-                    x = self.x_pos[i],
+                    x = self.x_reference[i],
                     # TODO: Offset y for branches
-                    y = self.y_pos[i],
-                    yshift = -50,
+                    y = 0,
+                    yshift = -75,
                     showarrow = False,
                 )
 
@@ -244,7 +246,7 @@ class SankeyPlot:
         if (retrain == True):
             # Train model on only the selected features
             model = model.fit(train[results[key]], labels)
-        return model
+        return model, results[key]
 
     def analyze_sfs(self, data:pd.DataFrame, train:pd.DataFrame, labels_train:pd.Series, 
                     model_dict:dict, agreement:int, direction:str, tree_model:BaseEstimator=None, 
@@ -256,16 +258,18 @@ class SankeyPlot:
             # Generate new results
             # NOTE: Could run each in parallel, but have opted for a multithreaded sfs
             for name, model in model_dict.items():
-                model = self.run_sfs(model, train, labels_train, "{}{}".format(name, iteration), save_path, direction, n_features, tol, evaluate)
+                key_name = "{}{}".format(name, iteration)
+                if (iteration is None): key_name = "{}".format(name)
+                model, feats = self.run_sfs(model, train, labels_train, key_name, save_path, direction, n_features, tol, evaluate)
                 if (evaluate == True):
-                    print("{}{} Training results: \n".format(name, iteration))
-                    print(classification_report(labels_train, model.predict(train)))
+                    print("{} Training results: \n".format(key_name))
+                    print(classification_report(labels_train, model.predict(train[feats])))
                     if (test is not None and labels_test is not None):
-                        print("{}{} Evaluation results: \n".format(name, iteration))
-                        print(classification_report(labels_test, model.predict(test)))
+                        print("{} Evaluation results: \n".format(key_name))
+                        print(classification_report(labels_test, model.predict(test[feats])))
             if tree_model is not None:
                 # Train and evaluate feature importances for the given tree model
-                tree_fitted = tree_model.train(train, labels_train)
+                tree_fitted = tree_model.fit(train, labels_train)
                 tree_feats = train.columns.to_series().index[pd.Series(tree_fitted.feature_importances_, dtype='bool')].tolist()
                 # Save feature importances to save_path
                 with open(save_path) as fp:
@@ -308,7 +312,7 @@ class SankeyPlot:
 
     def build_feature_chain(self, data:pd.DataFrame, enc_train:pd.DataFrame, labels_train:pd.Series, 
                             model_dict:dict, agreement:int, stages:list, category_dict:str,
-                            response:str, direction:str, 
+                            response:str, direction:str, link_swatch:list,
                             enc_test:pd.DataFrame=None, labels_test:pd.Series=None, n_features:int|float='auto', tol:float=None, 
                             evaluate=True, tree_model:BaseEstimator=None, 
                             color_json:str=None, color_swatch:list=None, hover_swatch:list=None,
@@ -345,8 +349,7 @@ class SankeyPlot:
             selected_feats.extend(sfs_feats)
 
         # Need to append response to plot_feats so it gets plotted
-        print(hover_swatch)
         selected_feats.append(response)
-        fig = self.build_sankey(data, selected_feats, response, 
+        fig = self.build_sankey(data, selected_feats, response, link_swatch=link_swatch,
                                 color_json=color_json, color_swatch=color_swatch, hover_swatch=hover_swatch)
         return fig

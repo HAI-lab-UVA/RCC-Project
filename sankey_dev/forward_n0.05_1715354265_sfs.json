@@ -1,0 +1,252 @@
+{
+  "svc0": [
+    "sparse__Gender_female",
+    "sparse__Gender_male",
+    "sparse__Functional Status_independent",
+    "sparse__Functional Status_nan",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Primary v. Recurrence_recurrent",
+    "sparse__Prior Abdominal Operations_Open_1.0"
+  ],
+  "ridge0": [
+    "sparse__Gender_female",
+    "sparse__Gender_male",
+    "sparse__Functional Status_independent",
+    "sparse__Functional Status_nan",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Primary v. Recurrence_recurrent",
+    "dense__Race"
+  ],
+  "sgd0": [
+    "sparse__Gender_female",
+    "sparse__Gender_male",
+    "sparse__Functional Status_independent",
+    "sparse__Functional Status_nan",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Primary v. Recurrence_recurrent",
+    "dense__Race"
+  ],
+  "mlp0": [
+    "sparse__Gender_female",
+    "sparse__Gender_male",
+    "sparse__Functional Status_independent",
+    "sparse__Functional Status_nan",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Primary v. Recurrence_recurrent",
+    "dense__Race"
+  ],
+  "adaboost0": [
+    "sparse__Gender_female",
+    "sparse__Gender_male",
+    "sparse__Functional Status_independent",
+    "sparse__Functional Status_nan",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Primary v. Recurrence_recurrent",
+    "dense__Race"
+  ],
+  "tree - imp feats0": [
+    "sparse__Gender_male",
+    "sparse__Family history of CRC_no",
+    "sparse__Family history of CRC_yes",
+    "sparse__Diabetes_yes",
+    "sparse__Previous Diagnosis of Prostate Cancer_no",
+    "sparse__Prior Abdominal Operations_Laparoscopic_0.0",
+    "dense__Previous Diagnosis of Cancer",
+    "dense__Diverting Ostomy Before Surgery",
+    "dense__CEA (ng/mL)",
+    "sparse__Location of Metastatic Disease_Peritoneum_0.0",
+    "dense__Pre-Operative Imaging Diagnosis",
+    "dense__Method of Metastatic Tumor Biopsy",
+    "sparse__Sphincter Involvement_nan",
+    "sparse__Bilobar Liver Disease_nan",
+    "dense__Pre-Treatment N-Stage by MRI",
+    "dense__Pre-Treatment M-Stage by MRI",
+    "dense__Pre-Treatment 8th Edition AJCC Staging by MRI",
+    "dense__Number of Mesorectal Nodes by MRI",
+    "dense__Number of Mesorectal Nodes by ERUS",
+    "dense__Number of Retroperitoneal Nodes by PET-CT",
+    "dense__Number of Pelvic Nodes on CT",
+    "dense__Number of Pelvic Nodes on MRI",
+    "dense__Tumor Location",
+    "dense__Number of Mesorectal Nodes by MRI_Post",
+    "dense__Number of Retroperitoneal Nodes by CT_Post",
+    "sparse__Radiation Approach_nan"
+  ],
+  "svc1": [
+    "dense__Clinical Response after Neoadjuvant Treatment",
+    "dense__Post-Treatment T-stage by MRI",
+    "dense__Post-Treatment AJCC 8th Edition Staging by MRI",
+    "dense__Reason for Conversion to Open",
+    "dense__# Liver Lesions"
+  ],
+  "ridge1": [
+    "sparse__Post-Treatment M-Stage by MRI_no distant metastasis",
+    "sparse__Post-Treatment M-Stage by MRI_nan",
+    "sparse__Post-Treatment T-Stage by ERUS_tumor invades through muscularis propria",
+    "sparse__Post-Treatment T-Stage by ERUS_nan",
+    "sparse__Number of Retroperitoneal Nodes by PET-CT_Post_0",
+    "sparse__Number of Retroperitoneal Nodes by PET-CT_Post_nan"
+  ],
+  "sgd1": [
+    "sparse__Post-Treatment M-Stage by MRI_no distant metastasis",
+    "sparse__Post-Treatment M-Stage by MRI_nan",
+    "sparse__Post-Treatment T-Stage by ERUS_tumor invades through muscularis propria",
+    "sparse__Post-Treatment T-Stage by ERUS_nan",
+    "sparse__Number of Retroperitoneal Nodes by PET-CT_Post_0",
+    "sparse__Involvement of Pelvic Sidewall_Post_no"
+  ],
+  "mlp1": [
+    "sparse__Post-Treatment M-Stage by MRI_no distant metastasis",
+    "sparse__Post-Treatment M-Stage by MRI_nan",
+    "sparse__Post-Treatment T-Stage by ERUS_tumor invades through muscularis propria",
+    "sparse__Post-Treatment T-Stage by ERUS_nan",
+    "sparse__Number of Retroperitoneal Nodes by PET-CT_Post_0",
+    "sparse__Number of Retroperitoneal Nodes by PET-CT_Post_nan"
+  ],
+  "adaboost1": [
+    "sparse__Post-Treatment M-Stage by MRI_no distant metastasis",
+    "sparse__Post-Treatment M-Stage by MRI_nan",
+    "sparse__Post-Treatment T-Stage by ERUS_tumor invades through muscularis propria",
+    "dense__Post-Treatment N-stage by MRI",
+    "sparse__Bladder_no"
+  ],
+  "tree - imp feats1": [
+    "dense__Clinical Response after Neoadjuvant Treatment",
+    "dense__Post-Treatment T-stage by MRI",
+    "dense__Post-Treatment Tumor Diameter (cm)",
+    "sparse__Involvement of Pelvic Sidewall_Op_nan",
+    "sparse__Specimen Extraction Site_abdominal",
+    "sparse__Sphincter Preservation_nan",
+    "sparse__Margin Re-Resection_nan",
+    "sparse__Bladder_no",
+    "sparse__Intraoperative Complication_no",
+    "dense__Wound Class",
+    "dense__Operative Approach",
+    "dense__Reason for Conversion to Open",
+    "dense__Mobilization of Splenic Flexure",
+    "dense__Method of Vessel Transection",
+    "dense__Method of Rectal Transection",
+    "dense__Number of Staple Fires to Transect Rectum",
+    "dense__Method of Anastomosis",
+    "dense__Type of Drainage System",
+    "dense__# Liver Lesions",
+    "dense__Type of Resection",
+    "sparse__Intraop pRBC Transfusion_no"
+  ],
+  "svc2": [
+    "dense__T-Stage",
+    "dense__N-Stage",
+    "dense__TNM Grade",
+    "dense__Tumor Differentiation",
+    "dense__Depth of Invasion",
+    "dense__T-Stage_Recurrence",
+    "dense__Reason for Delay in Adjuvant Treatment"
+  ],
+  "ridge2": [
+    "sparse__Lymphovascular Invasion (LVI)_no",
+    "sparse__Lymphovascular Invasion (LVI)_yes",
+    "sparse__Perineural Invasion (PNI)_no",
+    "sparse__Perineural Invasion (PNI)_nan",
+    "sparse__Sphincter Involvement_Histopathology_no",
+    "sparse__Sphincter Involvement_Histopathology_nan",
+    "sparse__Other Organ Involvement_invading",
+    "sparse__Other Organ Involvement_nan"
+  ],
+  "sgd2": [
+    "sparse__Lymphovascular Invasion (LVI)_no",
+    "sparse__Lymphovascular Invasion (LVI)_yes",
+    "sparse__MSH2 Status_nan",
+    "dense__Tumor Budding",
+    "sparse__Temporary Dialysis_nan",
+    "sparse__Readmission_yes",
+    "sparse__Delay in Adjuvant Treatment_nan",
+    "dense__Reason for Delay in Adjuvant Treatment"
+  ],
+  "mlp2": [
+    "sparse__Lymphovascular Invasion (LVI)_no",
+    "sparse__Lymphovascular Invasion (LVI)_yes",
+    "sparse__Perineural Invasion (PNI)_no",
+    "sparse__Perineural Invasion (PNI)_nan",
+    "sparse__Sphincter Involvement_Histopathology_no",
+    "sparse__Sphincter Involvement_Histopathology_nan",
+    "sparse__Other Organ Involvement_invading",
+    "sparse__Other Organ Involvement_nan"
+  ],
+  "adaboost2": [
+    "sparse__Lymphovascular Invasion (LVI)_no",
+    "sparse__Lymphovascular Invasion (LVI)_yes",
+    "sparse__Sphincter Involvement_Histopathology_nan",
+    "dense__Histopathologic Type",
+    "sparse__Post-op Drainage Procedure_no",
+    "sparse__Location of Readmission_participating institution",
+    "dense__Reason for Delay in Adjuvant Treatment"
+  ],
+  "tree - imp feats2": [
+    "sparse__MSI Results_msi-h",
+    "sparse__KRAS Status_nan",
+    "dense__Histopathologic Type",
+    "dense__T-Stage",
+    "dense__N-Stage",
+    "dense__AJCC Eighth Edition Stage",
+    "dense__TNM Grade",
+    "dense__Tumor Differentiation",
+    "dense__Depth of Invasion",
+    "dense__Distal Margin Distance (cm)",
+    "dense__Final LIVER Resection Status",
+    "dense__Tumor Budding",
+    "dense__Necrosis",
+    "dense__Pathologic Response",
+    "dense__Mucinous",
+    "dense__Additional Pathologic Findings",
+    "dense__T-Stage_Recurrence",
+    "sparse__Post-op Drainage Procedure_no",
+    "sparse__Location of Readmission_participating institution",
+    "dense__Return of Bowel Function",
+    "dense__Highest Clavien-Dindo Grade",
+    "dense__Minor vs Major Complication",
+    "dense__Indication for Reoperation",
+    "dense__Discharge Destination",
+    "dense__Time to Readmission",
+    "sparse__Adjuvant Chemo Regimen_Initial_Folfox_1.0",
+    "dense__Reason for Delay in Adjuvant Treatment"
+  ],
+  "svc3": [
+    "sparse__Death_no",
+    "sparse__Death_yes",
+    "sparse__Surveillance by MRI_no"
+  ],
+  "ridge3": [
+    "sparse__Death_no",
+    "sparse__Death_yes",
+    "sparse__Surveillance by CT_yes"
+  ],
+  "sgd3": [
+    "sparse__Death_no",
+    "sparse__Death_yes",
+    "sparse__Surveillance by CT_yes"
+  ],
+  "mlp3": [
+    "sparse__Death_no",
+    "sparse__Death_yes",
+    "sparse__Surveillance by CT_yes"
+  ],
+  "adaboost3": [
+    "sparse__Death_no",
+    "sparse__Death_yes",
+    "sparse__Surveillance by CT_yes"
+  ],
+  "tree - imp feats3": [
+    "sparse__Death_no",
+    "sparse__Recurrence_no",
+    "dense__Disease Status",
+    "dense__Time to Death",
+    "dense__Locoregional Surveillance Frequency",
+    "dense__Distant Surveillance Frequency",
+    "dense__Liver"
+  ]
+}
