@@ -35,6 +35,7 @@ class SankeyPlot:
         self.link_swatch = []
         self.hover_swatch = []
         self.branch_feats = None
+        self.branch_pad = 0.0
 
     def recurse_sankey_branch(self, branch_mask:pd.Series, start_index:int=0, 
                               y_max:float=1.0, y_min:float=0.0,
@@ -131,6 +132,12 @@ class SankeyPlot:
                         # Set y_min and y_max relative to height/prop of feat level
                         branch_y_max = y_max - sum(level_props[j+1:])
                         branch_y_min = y_min + sum(level_props[:j])
+
+                        if branch_y_max < 1.0:
+                            branch_y_max -= self.branch_pad
+                        if branch_y_min > 0.0:
+                            branch_y_min += self.branch_pad
+
                         # Get the index for the branch's source
                         new_branch_source = self.labels.index(level_labels[j])
                         # Update branch_mask
@@ -144,7 +151,7 @@ class SankeyPlot:
 
     def build_sankey(self, data:pd.DataFrame, feats:list, response:str,
                      link_swatch:list, hover_swatch:list, color_swatch:list=None, branch_feats:list=None,
-                     significance=True, color_json:str=None, vertical_pad=15) -> go.Figure:
+                     significance=True, color_json:str=None, vertical_pad=15, branch_pad=0.1) -> go.Figure:
         
         # TODO: Decide whether to reset these when func called
         # labels = []
@@ -166,6 +173,7 @@ class SankeyPlot:
         self.link_swatch = link_swatch
         self.hover_swatch = hover_swatch
         self.branch_feats = branch_feats
+        self.branch_pad = branch_pad
         dummy_mask = pd.Series([True]).repeat(len(data)).reset_index(drop=True)
 
         # Create sankey/alluvial diagram
@@ -184,7 +192,6 @@ class SankeyPlot:
 
         self.recurse_sankey_branch(dummy_mask)
         
-
         fig = go.Figure(data=[go.Sankey(
             arrangement='snap',
             valueformat = ".2%",
