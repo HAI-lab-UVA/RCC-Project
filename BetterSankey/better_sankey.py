@@ -23,6 +23,8 @@ class SankeyPlot:
         self.x_pos = []
         self.y_pos = []
         self.p_values = []
+        self.p_val_x_pos = []
+        self.p_val_y_pos = []
         self.link_colors = []
         self.link_labels = []
         self.hover_colors = []
@@ -78,6 +80,10 @@ class SankeyPlot:
                 contingency_tab = pd.crosstab(data[feat], data[self.response], margins=False, dropna=False)
                 x2_res = scipy.stats.chi2_contingency(contingency_tab)
                 self.p_values.append(x2_res.pvalue)
+                self.p_val_x_pos.append(self.x_reference[i])
+                self.p_val_y_pos.append(y_min)
+                # adjust y_pos of annotations for better spacing
+                if y_min > 0.0: self.p_val_y_pos[-1] -= (self.branch_pad * 1.5)
 
             if (i > 0):
                 # Define links between nodes
@@ -221,9 +227,9 @@ class SankeyPlot:
                 fig.add_annotation(
                     text = "p-value: {:.3e}".format(p),
                     # BUG: index out of range for branching
-                    x = self.x_reference[i],
+                    x = self.p_val_x_pos[i],
                     # TODO: Offset y for branches
-                    y = 0,
+                    y = self.p_val_y_pos[i],
                     yshift = -75,
                     showarrow = False,
                 )
