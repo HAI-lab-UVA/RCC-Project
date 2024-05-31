@@ -145,7 +145,7 @@ class SankeyPlot:
                             new_branch_mask = branch_mask & self.data[feat].isna()
                         else: new_branch_mask = branch_mask & (self.data[feat] == value)
                         self.recurse_sankey_branch(new_branch_mask, i+1, branch_y_max, branch_y_min, new_branch_source,
-                                                   "\n" + level_labels[j])
+                                                   branch_condition + " ({})".format(value))
                     return
 
 
