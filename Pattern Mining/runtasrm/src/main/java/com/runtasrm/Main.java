@@ -34,11 +34,13 @@ public class Main {
                                 .longOpt("xquery")
                                 .desc("antecedents for query as integer tokens")
                                 .hasArgs()
+                                .required(false)
                                 .build());
         options.addOption(Option.builder("y")
                                 .longOpt("yquery")
                                 .desc("consequents for query as integer tokens")
                                 .hasArgs()
+                                .required(false)
                                 .build());
 
         return options;
@@ -49,15 +51,10 @@ public class Main {
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
 
-        double minSupport = 0.0;
-        double minConfidence = 0.0;
-        String inputFP = "";
-        String outputFP = "";
-
-        minSupport = cmd.getParsedOptionValue("s");
-        minConfidence = cmd.getParsedOptionValue("c");
-        inputFP = cmd.getParsedOptionValue("i");
-        outputFP = cmd.getParsedOptionValue("o");
+        double minSupport = Double.parseDouble(cmd.getOptionValue("s"));
+        double minConfidence = Double.parseDouble(cmd.getOptionValue("c"));
+        String inputFP = cmd.getParsedOptionValue("i");
+        String outputFP = cmd.getParsedOptionValue("o");
 
         ArrayList<Integer> xQuery = new ArrayList<>();
         if (cmd.hasOption("x")) {
