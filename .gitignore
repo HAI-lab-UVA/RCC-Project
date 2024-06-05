@@ -168,4 +168,5 @@ Pattern Mining/token_mapping.json
 
 # Misc
 desktop.ini
-Data Sources/
+Pattern Mining/runtasrm/src/main/java/com/runtasrm/*
+!Pattern Mining/runtasrm/src/main/java/com/runtasrm/Main.java
