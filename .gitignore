@@ -162,6 +162,10 @@ cython_debug/
 # VSCode
 .vscode
 
+# Sensitive info
+Data Sources/
+Pattern Mining/token_mapping.json
+
 # Misc
 desktop.ini
 Data Sources/
