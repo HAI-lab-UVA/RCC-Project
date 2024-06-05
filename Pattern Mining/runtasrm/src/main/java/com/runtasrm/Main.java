@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.runtasrm;
 
 import org.apache.commons.cli.*;
@@ -11,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author andrew
+ * @author Andrew Balch
  */
 public class Main {
 
