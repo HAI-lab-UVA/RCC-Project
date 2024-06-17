@@ -1,410 +1,405 @@
 Name,dtype,Num Non-Null,Num Unique
-Database ID,object,1881,1866
-Gender,object,1877,3
-Age,float64,1878,75
-Race,object,1881,6
-Height (cm),float64,1672,73
-Weight (kg),float64,1733,123
-BMI,float64,1730,292
-Zip Code,float64,1864,1096
-Health Insurance,object,1881,4
-ASA Class,object,1877,6
-Functional Status,object,1881,4
-Family history of CRC,object,1881,3
-Date of Diagnosis,object,1874,1247
-Primary v. Recurrence,object,1877,3
-HTN,object,1881,3
-Diabetes,object,1881,3
-Prior Cardiac Event,object,1881,3
-CHF,object,1881,3
-Dyspnea,object,1881,3
-Alcohol Abuse,object,1881,3
-Smoking History,object,1881,3
-Severe COPD,object,1881,3
-Ventilator-Dependent,object,1881,2
-Acute Renal Failure,object,1881,3
-Chronic Renal Failure,object,1881,3
-Dialysis,object,1881,3
-Chronic Liver Disease,object,1881,4
-Chronic Steroids,object,1881,3
-Previous Diagnosis of Cancer,object,160,11
-Previous Diagnosis of Prostate Cancer,object,1881,3
-Previous Diagnosis of GYN Cancer,object,1881,3
-Disseminated Cancer,object,1881,3
-Prior PELVIC Radiation,object,1881,3
-Time from Prior Radiation (yrs),object,67,6
-Known Genetic Syndrome,object,30,5
-Ulcerative Colitis,object,1388,5
-Crohn's Disease,object,1386,4
-Irritable Bowel Syndrome,object,1376,3
-Pre-Treatment Sexual Dysfunction,object,30,3
-Pre-Treatment Bladder Dysfunction,object,34,6
-Pre-Treatment Fecal Incontinence,object,60,6
-Prior Abdominal Operations,object,639,5
-Bowel Obstruction,object,20,4
-Malignant Fistula,object,24,5
-Rectal Bleeding,object,1493,3
-TPN Pre-Operatively,object,1319,3
-Weight Loss,object,1757,4
-Pre-Operative Rectal Stent,object,1430,3
-Date Rectal Stent Placed,object,8,9
-Reason for Rectal Stent,object,8,3
-Complication after Stenting,object,1,2
-Diverting Ostomy Before Surgery,object,1222,5
-Platelet Count (x1000/ml),float64,1654,349
-WBC Count,float64,1673,130
-Neutrophil %,float64,724,262
-Lymphocyte %,float64,723,248
-Hemoglobin (g/dL),float64,1671,102
-Systemic Sepsis,object,1440,3
-Albumin (g/dL),float64,1224,39
-Pre-Albumin (mg/dL),float64,12,11
-BUN (mg/dL),float64,1439,51
-Creatinine (mg/dL),float64,1680,115
-CRP (mg/dL),float64,11,9
-CEA (ng/mL),object,1293,261
-CA 19-9 (U/mL),float64,11,12
-Date of First Oncologic Consultation,object,1829,1180
-CT scan,object,1658,3
-Endorectal Ultrasound,object,1861,3
-MRI,object,1857,3
-Pre-Operative Imaging Diagnosis,object,1594,4
-Largest Radiographic Tumor Size (cm),float64,1087,101
-PET/PET-CT,object,1851,3
-Distant Disease on PET- CT,object,406,3
-Staging CT Chest,object,1852,4
-Staging CXR,object,1742,3
-Metastatic Disease,object,1854,3
-Location of Metastatic Disease,object,223,7
-Method of Metastatic Tumor Biopsy,object,1696,6
-Date of Biopsy,object,85,81
-Pre-Treatment T-Stage by MRI,object,795,10
-Pre-Treatment N-Stage by MRI,object,795,9
-Pre-Treatment M-Stage by MRI,object,815,4
-Pre-Treatment 8th Edition AJCC Staging by MRI,object,731,10
-Pre-Treatment T-Stage by ERUS,object,639,10
-Number of Mesorectal Nodes by MRI,object,691,20
-Number of Mesorectal Nodes by ERUS,object,565,12
-Number of Retroperitoneal Nodes by CT,object,967,9
-Number of Retroperitoneal Nodes by MRI,object,554,8
-Number of Retroperitoneal Nodes by PET-CT,object,268,7
-Number of Pelvic Nodes on CT,object,1022,9
-Number of Pelvic Nodes on MRI,object,668,12
-Number of Pelvic Nodes on PET-CT,object,287,8
-Pre-Treatment Tumor Diameter (cm),float64,393,77
-Pre-Treatment Length of Tumor (cm),float64,838,102
-Pre-Treatment Distance from Anal Verge (cm),float64,1380,82
-Tumor Location,object,1567,4
-Pre-Treatment Distance from Anal Sphincters (cm),float64,386,45
-Pre-Treatment Relationship to Peritoneal Reflection,object,1170,4
-Involvement of Pelvic Sidewall,object,1618,3
-Distal Circumferential or Radial Margin (mm),object,409,23
-Sphincter Involvement,object,1396,3
-Invasion into Reproductive Organs,object,1711,3
-Invasion into Bladder,object,1705,3
-Invasion into Sacrum,object,1708,3
-Invasion of Sacral Nerve Roots,object,1707,3
-Ureteral Obstruction,object,1470,4
-Ureteral Obstruction Intervention,object,19,3
-Bilobar Liver Disease,object,1685,3
-# Liver Segments Involved,float64,124,9
-Liver First Approach,object,1236,4
-Neoadjuvant Chemotherapy,object,1874,3
-Neoadjuvant Chemo Regimen,object,452,55
-Date of Initiation,object,436,386
-Date of Completion,object,417,373
-Duration of Neoadjuvant Chemo (months),object,414,9
-Neoadjuvant Chemo Treatment Completed,object,468,3
-Neoadjuvant Chemoradiation,object,1872,3
-Radiation Approach,object,1022,3
-Radiation Technique,object,879,4
-Radiation Dose,object,945,4
-Date of Initiation_NeoadjChemoRad,object,1124,803
-Date of Completion_NeoadjChemoRad,object,1144,850
-Duration of Neoadjuvant ChemoXRT (in months),object,1131,9
-Neoadjuvant ChemoXRT Treatment Completed,object,1174,3
-Total Neoadjuvant Therapy (TNT) Protocol,object,1861,3
-Complication During Neoadjuvant Treatment,object,469,121
-Intervention Required_Neoadjvant Complication,object,165,3
-Hospitalization Required,object,163,3
-Clinical Response after Neoadjuvant Treatment,object,774,4
-Post-Treatment T-stage by MRI,object,344,8
-Post-Treatment N-stage by MRI,object,342,9
-Post-Treatment M-Stage by MRI,object,291,3
-Post-Treatment AJCC 8th Edition Staging by MRI,object,330,10
-Post-Treatment T-Stage by ERUS,object,21,5
-Number of Mesorectal Nodes by MRI_Post,object,300,14
-Number of Mesorectal Nodes by ERUS_Post,float64,17,3
-Number of Retroperitoneal Nodes by CT_Post,object,228,7
-Number of Retroperitoneal Nodes by MRI_Post,float64,251,6
-Number of Retroperitoneal Nodes by PET-CT_Post,object,60,5
-Number of Pelvic Nodes on CT_Post,float64,236,6
-Number of Pelvic Nodes on MRI_Post,object,282,8
-Number of Pelvic Nodes on PET-CT_Post,float64,59,5
-Post-Treatment Tumor Diameter (cm),object,138,45
-Post-Treatment Length of Tumor (cm),float64,222,63
-Involvement of Pelvic Sidewall_Post,object,555,3
-Distal Circumferential or Radial Margin (mm)_Post,object,136,17
-Sphincter Involvement_Post,object,626,3
-Invasion into Reproductive Organs_Post,object,652,3
-Invasion into Bladder_Post,object,647,3
-Invasion into Sacrum_Post,object,648,3
-Invasion of Sacral Nerve Roots_Post,object,647,3
-# Liver Segments Involved on Imaging,float64,87,10
-# Lung Lesions on Imaging,object,121,13
-Watch and Wait Protocol,object,34,3
-Date of Surgery,object,1816,1189
-Emergency Surgery,object,1807,3
-Wound Class,object,1672,6
-Re-Resection,object,1503,3
-Palliative vs Curative Intent,object,1877,3
-Indication for Palliative Resection,object,1877,7
-CURRENT Tumor Category,object,1750,7
-Type of Operation of Rectal Tumor,object,1790,9
-Operative Approach,object,1742,8
-Reason for Conversion to Open,object,1745,8
-Distance from Anal Verge,float64,900,4
-Distance from Sphincters,float64,200,23
-Tumor Relationship to Peritoneal Reflection,object,1174,3
-Involvement of Pelvic Sidewall_Op,object,1360,3
-Ureteral Stents,object,1559,4
-Intraoperative Radiation,object,1726,3
-Mobilization of Splenic Flexure,object,1420,6
-Location of Vessel Ligation,object,1194,3
-Method of Vessel Transection,object,1152,5
-Method of Rectal Transection,object,1185,7
-Number of Staple Fires to Transect Rectum,object,377,5
-Specimen Extraction Site,object,1626,3
-Method of Anastomosis,object,1334,5
-Leak Test Results,object,1477,4
-Sphincter Preservation,object,1154,3
-Anastomosis Distance from Sphincters (cm),float64,65,8
-Anastomosis Distance from Anal Verge (cm),float64,101,14
-Anal Canal,object,1183,3
-Diverting Loop Ileostomy,object,1609,3
-Additional Pelvic Nodes Resected,object,1424,7
-Frozen Section Margin,object,1349,3
-Frozen Margin Positive,object,198,3
-Margin Re-Resection,object,458,3
-Operative Time (minutes),float64,1672,486
-Intraop Drain Placement,object,1559,3
-Type of Drainage System,object,1000,4
-# of Drains,float64,1053,7
-Type of Robot,object,48,3
-Local Excision Approach,object,217,4
-Portion of Sphincters Resected,object,184,5
-Defect Closure,object,218,5
-Peritoneal Perforation,object,195,5
-Intervention for Peritoneal Perforation,object,4,3
-Positive Margin Requiring Re-excision,object,192,4
-Need for Radical Resection,object,185,4
-Type of Anastomosis,float64,954,4
-Intersphincteric Dissection,object,832,3
-Colonic J-Pouch,object,863,3
-Coloplasty,object,858,3
-Omental Flap to Pelvis,object,865,4
-Gracilis Flap to Pelvis,object,418,3
-Transverse Rectus Abdominus Flap,object,415,3
-Omental Flap to Pelvis_Op_APR,object,420,3
-Small Bowel,object,1192,3
-# Small Bowel Resections,float64,25,4
-Adnexa,object,1185,3
-Uterus,object,1184,3
-Vagina,object,1185,3
-Bladder,object,1194,3
-Ureter,object,1194,3
-Seminal Vesicles,object,1181,3
-Prostate,object,1183,3
-Sacrum,object,1188,6
-Pelvic Exenteration,object,646,4
-# Liver Lesions,object,130,12
-Lesion Distribution,object,121,4
-Lesions Resected,object,109,10
-Wedge Resection,float64,79,6
-Type of Resection,object,110,4
-Ablation,object,119,3
-Intraoperative Complication,object,1638,3
-Type of Intraoperative Complication,object,72,39
-EBL (mL),float64,1460,86
-Intraop pRBC Transfusion,object,1617,3
-Intraop pRBC Units,float64,740,10
-Postop pRBC Transfusion,object,1601,3
-Postop pRBC Units,float64,748,12
-Intraop Crystalloid (ml),float64,1447,462
-Intraop Albumin (ml),float64,1129,20
-Intraop UOP (ml),float64,1323,253
-Tumor Size (cm),float64,1473,99
-Histopathologic Type,object,1699,11
-T-Stage,object,1779,9
-N-Stage,object,1777,8
-AJCC Eighth Edition Stage,object,1779,11
-TNM Grade,object,1326,4
-Tumor Differentiation,object,1166,5
-Depth of Invasion,object,1418,6
+Database ID,object,300,300
+Gender,object,300,2
+Age,float64,299,61
+Race,object,300,6
+Height (cm),float64,264,37
+Weight (kg),float64,255,77
+BMI,float64,253,154
+Zip Code,float64,295,171
+Health Insurance,object,300,4
+ASA Class,object,300,5
+Functional Status,object,300,4
+Family history of CRC,object,300,3
+Date of Diagnosis,object,300,266
+Primary v. Recurrence,object,297,3
+HTN,object,300,2
+Diabetes,object,300,2
+Prior Cardiac Event,object,300,2
+CHF,object,300,2
+Dyspnea,object,300,3
+Alcohol Abuse,object,300,3
+Smoking History,object,300,3
+Severe COPD,object,300,2
+Ventilator-Dependent,object,300,2
+Acute Renal Failure,object,300,3
+Chronic Renal Failure,object,300,3
+Dialysis,object,300,3
+Chronic Liver Disease,object,300,4
+Chronic Steroids,object,300,3
+Previous Diagnosis of Cancer,object,27,8
+Previous Diagnosis of Prostate Cancer,object,300,3
+Previous Diagnosis of GYN Cancer,object,300,3
+Disseminated Cancer,object,300,3
+Prior PELVIC Radiation,object,300,3
+Time from Prior Radiation (yrs),object,27,6
+Known Genetic Syndrome,object,2,2
+Ulcerative Colitis,object,297,5
+Crohn's Disease,object,296,4
+Irritable Bowel Syndrome,object,297,3
+Pre-Treatment Sexual Dysfunction,object,3,2
+Pre-Treatment Bladder Dysfunction,object,6,3
+Pre-Treatment Fecal Incontinence,object,28,5
+Prior Abdominal Operations,object,97,5
+Bowel Obstruction,object,9,4
+Malignant Fistula,object,5,4
+Rectal Bleeding,object,295,3
+TPN Pre-Operatively,object,297,3
+Weight Loss,object,293,3
+Pre-Operative Rectal Stent,object,300,2
+Date Rectal Stent Placed,object,4,5
+Reason for Rectal Stent,object,4,3
+Diverting Ostomy Before Surgery,object,300,4
+Platelet Count (x1000/ml),float64,273,174
+WBC Count,float64,274,82
+Neutrophil %,float64,130,70
+Lymphocyte %,float64,130,69
+Hemoglobin (g/dL),float64,272,78
+Systemic Sepsis,object,271,3
+Albumin (g/dL),float64,242,27
+BUN (mg/dL),float64,266,32
+Creatinine (mg/dL),float64,271,100
+CEA (ng/mL),object,142,88
+CA 19-9 (U/mL),float64,8,9
+Date of First Oncologic Consultation,object,271,239
+CT scan,object,292,3
+Endorectal Ultrasound,object,292,3
+MRI,object,290,3
+Pre-Operative Imaging Diagnosis,object,252,4
+Largest Radiographic Tumor Size (cm),float64,194,77
+PET/PET-CT,object,288,3
+Distant Disease on PET- CT,object,76,3
+Staging CT Chest,object,286,3
+Staging CXR,object,285,3
+Metastatic Disease,object,292,3
+Location of Metastatic Disease,object,59,7
+Method of Metastatic Tumor Biopsy,object,250,6
+Date of Biopsy,object,37,37
+Pre-Treatment T-Stage by MRI,object,116,8
+Pre-Treatment N-Stage by MRI,object,119,8
+Pre-Treatment M-Stage by MRI,object,142,3
+Pre-Treatment 8th Edition AJCC Staging by MRI,object,126,10
+Pre-Treatment T-Stage by ERUS,object,113,8
+Number of Mesorectal Nodes by MRI,object,130,15
+Number of Mesorectal Nodes by ERUS,object,96,9
+Number of Retroperitoneal Nodes by CT,object,129,6
+Number of Retroperitoneal Nodes by MRI,object,130,7
+Number of Retroperitoneal Nodes by PET-CT,object,48,5
+Number of Pelvic Nodes on CT,object,129,5
+Number of Pelvic Nodes on MRI,object,132,7
+Number of Pelvic Nodes on PET-CT,object,49,7
+Pre-Treatment Tumor Diameter (cm),float64,143,61
+Pre-Treatment Length of Tumor (cm),float64,140,66
+Pre-Treatment Distance from Anal Verge (cm),float64,157,42
+Tumor Location,object,186,4
+Pre-Treatment Distance from Anal Sphincters (cm),float64,40,22
+Pre-Treatment Relationship to Peritoneal Reflection,object,49,3
+Involvement of Pelvic Sidewall,object,237,3
+Distal Circumferential or Radial Margin (mm),object,23,13
+Sphincter Involvement,object,227,3
+Invasion into Reproductive Organs,object,248,3
+Invasion into Bladder,object,246,3
+Invasion into Sacrum,object,248,2
+Invasion of Sacral Nerve Roots,object,247,3
+Ureteral Obstruction,object,248,4
+Ureteral Obstruction Intervention,object,8,3
+Bilobar Liver Disease,object,251,3
+# Liver Segments Involved,float64,45,8
+Liver First Approach,object,263,4
+Neoadjuvant Chemotherapy,object,297,3
+Neoadjuvant Chemo Regimen,object,58,25
+Date of Initiation,object,55,55
+Date of Completion,object,56,56
+Duration of Neoadjuvant Chemo (months),object,55,8
+Neoadjuvant Chemo Treatment Completed,object,58,3
+Neoadjuvant Chemoradiation,object,299,3
+Radiation Approach,object,87,3
+Radiation Technique,object,73,3
+Radiation Dose,object,74,4
+Date of Initiation_NeoadjChemoRad,object,127,121
+Date of Completion_NeoadjChemoRad,object,128,126
+Duration of Neoadjuvant ChemoXRT (in months),object,124,5
+Neoadjuvant ChemoXRT Treatment Completed,object,146,3
+Total Neoadjuvant Therapy (TNT) Protocol,object,297,3
+Complication During Neoadjuvant Treatment,object,130,50
+Intervention Required_Neoadjvant Complication,object,55,3
+Hospitalization Required,object,54,3
+Clinical Response after Neoadjuvant Treatment,object,151,4
+Post-Treatment T-stage by MRI,object,90,7
+Post-Treatment N-stage by MRI,object,90,8
+Post-Treatment M-Stage by MRI,object,105,3
+Post-Treatment AJCC 8th Edition Staging by MRI,object,97,10
+Post-Treatment T-Stage by ERUS,object,9,4
+Number of Mesorectal Nodes by MRI_Post,object,90,13
+Number of Mesorectal Nodes by ERUS_Post,float64,7,2
+Number of Retroperitoneal Nodes by CT_Post,object,53,5
+Number of Retroperitoneal Nodes by MRI_Post,float64,88,4
+Number of Retroperitoneal Nodes by PET-CT_Post,object,8,3
+Number of Pelvic Nodes on CT_Post,float64,55,4
+Number of Pelvic Nodes on MRI_Post,object,87,6
+Number of Pelvic Nodes on PET-CT_Post,float64,10,4
+Post-Treatment Tumor Diameter (cm),object,71,34
+Post-Treatment Length of Tumor (cm),float64,70,39
+Involvement of Pelvic Sidewall_Post,object,141,3
+Distal Circumferential or Radial Margin (mm)_Post,object,14,11
+Sphincter Involvement_Post,object,137,3
+Invasion into Reproductive Organs_Post,object,148,3
+Invasion into Bladder_Post,object,149,3
+Invasion into Sacrum_Post,object,149,3
+Invasion of Sacral Nerve Roots_Post,object,149,3
+# Liver Segments Involved on Imaging,float64,33,7
+# Lung Lesions on Imaging,object,10,8
+Watch and Wait Protocol,object,6,3
+Date of Surgery,object,252,219
+Emergency Surgery,object,246,3
+Wound Class,object,244,4
+Re-Resection,object,248,3
+Palliative vs Curative Intent,object,300,2
+Indication for Palliative Resection,object,300,4
+CURRENT Tumor Category,object,247,6
+Type of Operation of Rectal Tumor,object,242,8
+Operative Approach,object,242,8
+Reason for Conversion to Open,object,243,7
+Distance from Anal Verge,float64,152,4
+Distance from Sphincters,float64,16,7
+Tumor Relationship to Peritoneal Reflection,object,27,3
+Involvement of Pelvic Sidewall_Op,object,234,3
+Ureteral Stents,object,240,3
+Intraoperative Radiation,object,242,3
+Mobilization of Splenic Flexure,object,240,6
+Location of Vessel Ligation,object,120,3
+Method of Vessel Transection,object,113,5
+Method of Rectal Transection,object,157,7
+Number of Staple Fires to Transect Rectum,object,102,5
+Specimen Extraction Site,object,239,3
+Method of Anastomosis,object,121,4
+Leak Test Results,object,219,4
+Sphincter Preservation,object,148,3
+Anastomosis Distance from Sphincters (cm),float64,2,3
+Anastomosis Distance from Anal Verge (cm),float64,29,12
+Anal Canal,object,225,3
+Diverting Loop Ileostomy,object,240,3
+Additional Pelvic Nodes Resected,object,238,6
+Frozen Section Margin,object,242,3
+Frozen Margin Positive,object,69,3
+Margin Re-Resection,object,150,3
+Operative Time (minutes),float64,238,197
+Intraop Drain Placement,object,238,3
+Type of Drainage System,object,54,3
+# of Drains,float64,93,5
+Type of Robot,object,3,2
+Local Excision Approach,object,48,4
+Portion of Sphincters Resected,object,49,4
+Defect Closure,object,48,4
+Peritoneal Perforation,object,49,4
+Intervention for Peritoneal Perforation,object,1,2
+Positive Margin Requiring Re-excision,object,49,3
+Need for Radical Resection,object,49,3
+Type of Anastomosis,float64,104,3
+Intersphincteric Dissection,object,86,3
+Colonic J-Pouch,object,116,3
+Coloplasty,object,115,2
+Omental Flap to Pelvis,object,116,3
+Gracilis Flap to Pelvis,object,50,3
+Transverse Rectus Abdominus Flap,object,49,3
+Omental Flap to Pelvis_Op_APR,object,51,3
+Small Bowel,object,181,3
+# Small Bowel Resections,float64,5,3
+Adnexa,object,181,3
+Uterus,object,181,3
+Vagina,object,181,3
+Bladder,object,181,3
+Ureter,object,181,3
+Seminal Vesicles,object,179,3
+Prostate,object,181,3
+Sacrum,object,181,4
+Pelvic Exenteration,object,199,4
+# Liver Lesions,object,30,7
+Lesion Distribution,object,31,4
+Lesions Resected,object,30,7
+Wedge Resection,float64,16,5
+Type of Resection,object,31,4
+Ablation,object,32,3
+Intraoperative Complication,object,232,3
+Type of Intraoperative Complication,object,5,5
+EBL (mL),float64,222,40
+Intraop pRBC Transfusion,object,233,3
+Intraop pRBC Units,float64,18,5
+Postop pRBC Transfusion,object,236,3
+Postop pRBC Units,float64,31,9
+Intraop Crystalloid (ml),float64,225,91
+Intraop Albumin (ml),float64,139,12
+Intraop UOP (ml),float64,195,97
+Tumor Size (cm),float64,215,74
+Histopathologic Type,object,289,8
+T-Stage,object,250,9
+N-Stage,object,257,8
+AJCC Eighth Edition Stage,object,250,11
+TNM Grade,object,229,4
+Tumor Differentiation,object,229,5
+Depth of Invasion,object,203,6
 "# Lymph Nodes
-Retrieved",float64,1750,54
-# Lymph Node Positive,float64,1627,25
-Lymphovascular Invasion (LVI),object,1531,4
-Perineural Invasion (PNI),object,1536,4
-Proximal Margin Distance (cm),object,708,212
-Distal Margin Distance (cm),object,977,96
-Radial Margin Distance (mm),object,777,77
-Final Proximal Margin Status,object,1719,6
-Final Distal Margin Status,object,1717,6
-Final Radial Margin Status,object,1726,6
-Final Primary Rectal Tumor Resection  Status,object,1700,4
-Final LIVER Resection Status,object,87,4
-Tumor Budding,object,1283,4
-Necrosis,object,1283,4
-Necrosis (%),float64,7,3
-Treatment Effect (%),float64,123,11
-Pathologic Response,object,1202,4
-Mucinous,object,1284,4
-Sphincter Involvement_Histopathology,object,1279,3
-Other Organ Involvement,object,122,3
-Organs Invaded,object,102,46
-Completeness of TME,object,1221,4
-Specimen Integrity,object,1597,3
-Specimen Pinned,object,148,3
-Additional Pathologic Findings,object,118,5
-MSI Results,object,1361,3
-KRAS Status,object,1020,4
-BRAF Status,object,998,4
-APC Status,object,948,4
-P53 Status,object,946,4
-MLH1 Status,object,1284,4
-MSH2 Status,object,1348,4
-MSH6 Status,object,1349,4
-PMS2 Status,object,1344,4
-T-Stage_Recurrence,object,48,9
-N-Stage_Recurrence,object,48,9
-M-Stage,object,49,3
-Type of Operation of Rectal Tumor_Recurrence,object,49,5
-Method of Total Mesorectal Excision,object,43,7
-Distal Margin Distance (cm)_Recurrence,float64,23,4
-Radial Margin Distance (mm)_Recurrence,float64,21,4
-ERAS Protocol,object,1761,3
-Return of Bowel Function,object,800,8
-Any Complication,object,1620,3
-Total # of Complications,float64,772,10
-Highest Clavien-Dindo Grade,object,761,8
-Minor vs Major Complication,object,1590,4
-Superficial Surgical  Site Infection,object,1590,3
-Deep Surgical Site Infection,object,1588,3
-Intraabdominal Infection/Abscess,object,1507,3
-Post-op Drainage Procedure,object,1495,3
-Bleeding,object,1133,3
-CVA,object,1500,3
-Myocardial Infarction,object,1500,3
-Pneumonia,object,1501,3
-Deep Venous Thrombosis,object,1501,3
-Pulmonary Embolus,object,1500,3
-Respiratory Failure,object,1499,3
-Tracheostomy,object,1496,3
-Parenteral Nutrition,object,1231,3
-Anastomotic Leak,object,912,3
-Date of Diagnosis_PostOp_Leak,object,60,61
-Method of Leak Diagnosis,object,54,6
-Intervention Required,object,63,5
-Date of Intervention,object,51,52
-Type of Intervention,object,44,10
-Ostomy Reversed after Resolution of Leak,object,43,5
-Date of Drain Removal,object,803,671
-Time to Drain Removal (days),float64,801,53
-Acute Renal Failure_PostOp,object,1539,3
-Peak Post-op Creatinine (mg/dL),float64,790,135
-Temporary Dialysis,object,1511,3
-Permanent Dialysis,object,1511,3
-Fecal Incontinence,object,36,4
-Bladder Dysfunction,object,109,6
-Sexual Dysfunction,object,41,4
-Superficial Dehiscence,object,389,3
-Deep Dehiscence,object,424,3
-Associated Fistula,object,374,3
-Perineal Hernia,object,374,3
-Repair of Perineal Hernia,object,344,5
-Small Bowel Injury,object,1074,3
-Ureteral Injury,object,1074,3
-Small Bowel Obstruction,object,1088,3
-Ileus,object,1084,3
-Incisional Hernia,object,1058,3
-Date of Ileostomy Reversal,object,685,561
-Time to Ileostomy Reversal (days),float64,685,260
-Reoperation for any Complication,object,1556,3
-Indication for Reoperation,object,211,7
-Date of Reoperation,object,159,154
-ICU Admission,object,1359,3
-Date of ICU Admission,object,122,121
-Date of ICU Discharge,object,119,119
-LOS ICU Admission,float64,158,20
-Date of Discharge,object,1593,1190
-LOS (days),float64,1587,46
-Discharge Destination,object,1575,5
-Readmission,object,1604,3
-Date of Readmission,object,420,381
-Time to Readmission,object,403,5
-Location of Readmission,object,370,3
-Diagnosis at Readmission,object,403,141
-Date of Discharge_Readmission,object,335,315
-LOS Readmission,float64,335,26
-Adjuvant Chemotherapy,object,1762,3
-Adjuvant Chemo Regimen,object,879,136
-Adjuvant Chemo Duration,object,663,57
-Date of Initiation_AdjChemo,object,718,608
-Date of Completion_AdjChemo,object,671,560
-Adjuvant Chemo Treatment Completed,object,784,3
-Adjuvant Chemoradiation,object,1754,4
-Adjuvant Chemoradiation Duration,float64,39,20
-Date of Initiation_AdjChemoRad,object,40,40
-Date of Completion_AdjChemoRad,object,40,40
-Adjuvant Chemoradiation Treatment Completed,object,48,3
-Adjuvant Radiotherapy,object,1753,3
-Grey (Gy),float64,10,8
-Radiation Technique_AdjChemoRad,object,6,3
-Date of Initiation_AdjRad,object,10,11
-Date of Completion_AdjRad,object,9,10
-Radiotherapy Complications,object,1,2
-Delay in Adjuvant Treatment,object,525,3
-Reason for Delay in Adjuvant Treatment,object,74,4
-Date of Last Follow-up/Death,object,1813,1064
-Disease Status,object,1797,6
-Death,object,1785,3
-Date of Death,object,332,304
-Time to Death,object,340,5
-Overall Survival (OS),float64,1806,1288
-Surveillance by CT,object,1054,3
-Surveillance by MRI,object,1083,3
-Surveillance by EUS,object,1083,4
-Surveillance by CEA ONLY,object,1086,3
-Locoregional Surveillance Frequency,object,722,4
-Distant Surveillance Frequency,object,693,4
-Recurrence,object,1748,3
-CEA Level (ng/mL) at Recurrence,object,166,107
-Date of Recurrence,object,348,321
-Recurrence Free Survival (months),float64,345,293
-Multifocal Recurrence,object,327,3
-Region of Recurrence,object,352,8
-Rectal Wall,object,214,4
-Mesorectum,object,193,4
-Pelvis,object,135,9
-Sacrum_Recurrence_Locoregional,object,194,4
-Pelvic Sidewall,object,187,3
-Bladder_Recurrence_Locoregional,object,188,3
-Seminal Vesicles_Recurrence_Locoregional,object,183,3
-Prostate_Recurrence_Locoregional,object,183,3
-Vagina_Recurrence_Locoregional,object,183,4
-Ureter_Recurrence_Locoregional,object,186,3
-Regional LNs,object,194,4
-Liver,object,268,4
-Lung,object,274,4
-Peritoneum,object,231,4
-Ovary,object,218,2
-Bone,object,231,4
-Distant LNs,object,225,4
-Chemotherapy,object,314,3
-Chemotherapy Regimen,object,211,102
-Radiation,float64,268,3
-Grey (Gy)_Recurrence_Rad,float64,46,26
-Ablation_Recurrence,object,169,3
-Surgery,object,282,3
-COMMENTS,object,382,370
+Retrieved",float64,264,34
+# Lymph Node Positive,float64,222,15
+Lymphovascular Invasion (LVI),object,270,4
+Perineural Invasion (PNI),object,274,4
+Proximal Margin Distance (cm),object,60,49
+Distal Margin Distance (cm),object,82,40
+Radial Margin Distance (mm),object,101,36
+Final Proximal Margin Status,object,262,6
+Final Distal Margin Status,object,264,6
+Final Radial Margin Status,object,261,6
+Final Primary Rectal Tumor Resection  Status,object,242,4
+Final LIVER Resection Status,object,26,4
+Tumor Budding,object,284,4
+Necrosis,object,284,4
+Necrosis (%),float64,4,3
+Pathologic Response,object,126,4
+Mucinous,object,280,4
+Sphincter Involvement_Histopathology,object,212,3
+Other Organ Involvement,object,27,3
+Organs Invaded,object,24,19
+Completeness of TME,object,20,4
+Specimen Integrity,object,214,3
+Specimen Pinned,object,86,3
+Additional Pathologic Findings,object,27,5
+MSI Results,object,290,3
+KRAS Status,object,290,4
+BRAF Status,object,289,4
+APC Status,object,288,4
+P53 Status,object,289,4
+MLH1 Status,object,290,4
+MSH2 Status,object,290,4
+MSH6 Status,object,290,4
+PMS2 Status,object,289,4
+T-Stage_Recurrence,object,18,6
+N-Stage_Recurrence,object,19,8
+M-Stage,object,20,3
+Type of Operation of Rectal Tumor_Recurrence,object,17,5
+Method of Total Mesorectal Excision,object,11,7
+Distal Margin Distance (cm)_Recurrence,float64,12,3
+Radial Margin Distance (mm)_Recurrence,float64,11,4
+ERAS Protocol,object,240,3
+Return of Bowel Function,object,164,7
+Any Complication,object,245,3
+Total # of Complications,float64,98,8
+Highest Clavien-Dindo Grade,object,94,8
+Minor vs Major Complication,object,241,4
+Superficial Surgical  Site Infection,object,245,3
+Deep Surgical Site Infection,object,246,3
+Intraabdominal Infection/Abscess,object,246,3
+Post-op Drainage Procedure,object,246,3
+Bleeding,object,246,3
+CVA,object,245,3
+Myocardial Infarction,object,245,3
+Pneumonia,object,245,3
+Deep Venous Thrombosis,object,245,3
+Pulmonary Embolus,object,245,3
+Respiratory Failure,object,245,3
+Tracheostomy,object,245,3
+Parenteral Nutrition,object,245,3
+Anastomotic Leak,object,231,3
+Date of Diagnosis_PostOp_Leak,object,2,3
+Method of Leak Diagnosis,object,1,2
+Intervention Required,object,2,2
+Date of Intervention,object,2,3
+Type of Intervention,object,2,3
+Ostomy Reversed after Resolution of Leak,object,1,2
+Date of Drain Removal,object,42,42
+Time to Drain Removal (days),float64,41,18
+Acute Renal Failure_PostOp,object,246,3
+Peak Post-op Creatinine (mg/dL),float64,192,104
+Temporary Dialysis,object,246,2
+Permanent Dialysis,object,246,3
+Fecal Incontinence,object,11,2
+Bladder Dysfunction,object,26,5
+Sexual Dysfunction,object,8,3
+Superficial Dehiscence,object,47,3
+Deep Dehiscence,object,47,3
+Associated Fistula,object,47,3
+Perineal Hernia,object,47,3
+Repair of Perineal Hernia,object,46,3
+Small Bowel Injury,object,230,3
+Ureteral Injury,object,231,3
+Small Bowel Obstruction,object,231,3
+Ileus,object,230,3
+Incisional Hernia,object,231,3
+Date of Ileostomy Reversal,object,71,69
+Time to Ileostomy Reversal (days),float64,71,61
+Reoperation for any Complication,object,242,3
+Indication for Reoperation,object,15,4
+Date of Reoperation,object,16,17
+ICU Admission,object,248,3
+Date of ICU Admission,object,32,33
+Date of ICU Discharge,object,32,33
+LOS ICU Admission,float64,31,10
+Date of Discharge,object,249,231
+LOS (days),float64,244,27
+Discharge Destination,object,245,5
+Readmission,object,249,3
+Date of Readmission,object,67,66
+Time to Readmission,object,67,5
+Location of Readmission,object,67,3
+Diagnosis at Readmission,object,67,45
+Date of Discharge_Readmission,object,67,67
+LOS Readmission,float64,67,16
+Adjuvant Chemotherapy,object,263,3
+Adjuvant Chemo Regimen,object,79,27
+Adjuvant Chemo Duration,object,59,24
+Date of Initiation_AdjChemo,object,74,74
+Date of Completion_AdjChemo,object,69,66
+Adjuvant Chemo Treatment Completed,object,79,3
+Adjuvant Chemoradiation,object,261,3
+Adjuvant Chemoradiation Duration,float64,5,5
+Date of Initiation_AdjChemoRad,object,5,6
+Date of Completion_AdjChemoRad,object,5,6
+Adjuvant Chemoradiation Treatment Completed,object,7,2
+Adjuvant Radiotherapy,object,262,3
+Grey (Gy),float64,1,2
+Radiation Technique_AdjChemoRad,object,1,2
+Date of Initiation_AdjRad,object,1,2
+Date of Completion_AdjRad,object,1,2
+Delay in Adjuvant Treatment,object,90,3
+Reason for Delay in Adjuvant Treatment,object,16,4
+Date of Last Follow-up/Death,object,299,249
+Disease Status,object,295,6
+Death,object,293,3
+Date of Death,object,64,62
+Time to Death,object,64,5
+Overall Survival (OS),float64,299,281
+Surveillance by CT,object,257,3
+Surveillance by MRI,object,254,3
+Surveillance by EUS,object,255,4
+Surveillance by CEA ONLY,object,258,3
+Locoregional Surveillance Frequency,object,195,4
+Distant Surveillance Frequency,object,163,4
+Recurrence,object,264,3
+CEA Level (ng/mL) at Recurrence,object,18,16
+Date of Recurrence,object,47,47
+Recurrence Free Survival (months),float64,47,48
+Multifocal Recurrence,object,33,3
+Region of Recurrence,object,47,8
+Rectal Wall,object,29,3
+Mesorectum,object,28,4
+Pelvis,object,3,4
+Sacrum_Recurrence_Locoregional,object,25,3
+Pelvic Sidewall,object,25,3
+Bladder_Recurrence_Locoregional,object,25,2
+Seminal Vesicles_Recurrence_Locoregional,object,25,2
+Prostate_Recurrence_Locoregional,object,25,2
+Vagina_Recurrence_Locoregional,object,24,2
+Ureter_Recurrence_Locoregional,object,25,2
+Regional LNs,object,23,4
+Liver,object,37,4
+Lung,object,34,4
+Peritoneum,object,33,3
+Ovary,object,31,2
+Bone,object,32,3
+Distant LNs,object,34,4
+Chemotherapy,object,42,3
+Chemotherapy Regimen,object,23,16
+Radiation,float64,32,3
+Grey (Gy)_Recurrence_Rad,float64,3,4
+Ablation_Recurrence,object,30,3
+Surgery,object,37,3
+COMMENTS,object,122,122
